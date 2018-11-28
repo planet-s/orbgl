@@ -12,3 +12,7 @@ The Orbital Graphics Library is a library for rendering 2D and 3D graphics. Comp
 * Make sure that the SDL2 library is installed on your machine : ```libsdl2-dev```
   * For example, with Ubuntu, please to type ```sudo apt-get install libsdl2-dev``` in your console
 * Other problem? Do not hesitate to create a new issue!
+
+### Screenshot
+
+![](screenshots/complex.png)
