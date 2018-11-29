@@ -69,8 +69,14 @@ The first goal is to be compatible with HTML Canvas.
 - [ ] stroke_text()
 - [ ] measure_text()
 
+##### Rectangles
+- [ ] rect()
+- [ ] fill_rect()
+- [ ] stroke_rect()
+- [ ] clear_rect()
+
 ##### Image
-- [ ] drawImage()
+- [ ] draw_image()
 
 ##### Other
 - [x] save()
