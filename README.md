@@ -41,9 +41,9 @@ The first goal is to be compatible with HTML Canvas.
 - [ ] set_miter_limit()
 
 ##### Transformation
-- [ ] scale()
-- [ ] rotate()
-- [ ] translate()
+- [x] scale()
+- [x] rotate()
+- [x] translate()
 - [x] transform()
 - [x] set_transform()
 

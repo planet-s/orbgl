@@ -22,6 +22,20 @@ impl Matrix {
         }
     }
 
+    pub fn scale(&mut self, sx: f32, sy: f32) {
+        self.transform(sx, 0.0, 0.0, sy, 0.0, 0.0);
+    }
+
+    pub fn translate(&mut self, tx: f32, ty: f32) {
+        self.transform(1.0, 0.0, 0.0, 1.0, tx, ty);
+    }
+
+    pub fn rotate(&mut self, angle: f32) {
+        let cos = angle.cos();
+        let sin = angle.sin();
+        self.transform(cos, sin, -sin, cos, 0.0, 0.0);
+    }
+
     pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32){
         self.a = a;
         self.b = b;

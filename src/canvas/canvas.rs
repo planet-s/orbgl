@@ -292,13 +292,25 @@ impl Canvas  {
 impl Canvas  {
 
     /// Scales the current drawing bigger or smaller
-    pub fn scale(&mut self, a: f32, b:  f32) {}
+    pub fn scale(&mut self, sx: f32, sy: f32) {
+        unsafe {
+            self.state.transform.scale(sx, sy);
+        }
+    }
 
     /// Rotates the current drawing
-    pub fn rotate(&mut self) {}
+    pub fn rotate(&mut self, angle: f32) {
+        unsafe {
+            self.state.transform.rotate(angle);
+        }
+    }
 
     /// Remaps the (0,0) position on the canvas
-    pub fn translate(&mut self) {}
+    pub fn translate(&mut self, tx: f32, ty: f32) {
+        unsafe {
+            self.state.transform.translate(tx, ty);
+        }
+    }
 
     /// Replaces the current transformation matrix for the drawing
     pub fn transform(&mut self, a: f32, b:  f32, c: f32, d: f32, e: f32, f: f32) {
