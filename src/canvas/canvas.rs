@@ -238,9 +238,18 @@ impl Canvas {
                     let start_point = unsafe { self.state.transform.apply_to_point(edge.start) };
                     let end_point = unsafe { self.state.transform.apply_to_point(edge.end) };
 
-                    if line_width == 1.0 {
-                        self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
+                    //ToDo: line width
+                    let mut new_color = Color::rgba(color.r(), color.g(), color.b(), color.a());
+                    if line_width < 1.0 {
+                        let new_r = color.r() as f32 * line_width;
+                        let new_g = color.g() as f32 * line_width;
+                        let new_b = color.b() as f32 * line_width;
+                        let new_a = color.a() as f32 * line_width;
+
+                        new_color = Color::rgba(new_r as u8, new_g as u8, new_b as u8, new_a as u8);
                     }
+
+                    self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, new_color);
                 }
                 _ => {}
             }
