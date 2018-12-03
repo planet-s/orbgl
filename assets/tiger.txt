@@ -1,16 +1,18 @@
 save
-set_stroke_style 0 0 0
+set_stroke_style 0 0 0 0
 scale 0.08888888888888889 0.08888888888888889
 scale 0.08888888888888889 0.08888888888888889
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 transform 1.7656463 0.0 0.0 1.7656463 324.90716 255.00942
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -122.3 84.285
 bezier_curve_to -122.3 84.285 -122.2 86.179 -123.03 86.16
@@ -22,11 +24,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -118.77 81.262
 bezier_curve_to -118.77 81.262 -119.32 83.078 -120.08999999999999 82.779
@@ -38,11 +42,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -91.284 123.59
 bezier_curve_to -91.284 123.59 -89.64800000000001 124.55 -90.11800000000001 125.23
@@ -54,11 +60,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -94.093 133.8
 bezier_curve_to -94.093 133.8 -92.23700000000001 134.20000000000002 -92.471 134.99
@@ -70,11 +78,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -98.304 128.28
 bezier_curve_to -98.304 128.28 -96.526 128.94 -96.872 129.69
@@ -86,11 +96,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -109.01 110.07
 bezier_curve_to -109.01 110.07 -107.7 111.44999999999999 -108.34 111.97
@@ -102,11 +114,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -116.55 114.26
 bezier_curve_to -116.55 114.26 -115.1 115.48 -115.67 116.07000000000001
@@ -118,11 +132,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -119.15 118.34
 bezier_curve_to -119.15 118.34 -117.55000000000001 119.34 -118.04 120.01
@@ -134,11 +150,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -108.42 118.95
 bezier_curve_to -108.42 118.95 -107.3 120.48 -108.0 120.92
@@ -150,11 +168,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -128.2 90.0
 bezier_curve_to -128.2 90.0 -127.6 91.8 -128.39999999999998 92.0
@@ -166,11 +186,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -127.5 96.979
 bezier_curve_to -127.5 96.979 -126.53 98.608 -127.27 98.975
@@ -182,11 +204,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.17200001
 begin_path
 move_to -127.62 101.35
 bezier_curve_to -127.62 101.35 -126.5 102.88 -127.2 103.32
@@ -198,11 +222,11 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -129.83 103.06
 bezier_curve_to -129.33 109.11 -128.34 115.68 -126.60000000000001 118.8
@@ -298,10 +322,10 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
-set_stroke_style 0 0 0
+set_fill_style 204 114 38 255
+set_stroke_style 0 0 0 255
 save
-set_stroke_style 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to 299.72 80.245
 bezier_curve_to 300.34000000000003 80.426 302.55 81.55000000000001 303.8 83.2
@@ -352,7 +376,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to -115.6 102.6
@@ -379,7 +403,7 @@ stroke
 restore
 restore
 save
-set_fill_style 232 127 58
+set_fill_style 232 127 58 255
 save
 begin_path
 move_to 133.51 25.346
@@ -406,7 +430,7 @@ stroke
 restore
 restore
 save
-set_fill_style 234 140 77
+set_fill_style 234 140 77 255
 save
 begin_path
 move_to 134.82 27.091
@@ -433,7 +457,7 @@ stroke
 restore
 restore
 save
-set_fill_style 236 153 97
+set_fill_style 236 153 97 255
 save
 begin_path
 move_to 136.13 28.837
@@ -460,7 +484,7 @@ stroke
 restore
 restore
 save
-set_fill_style 238 165 117
+set_fill_style 238 165 117 255
 save
 begin_path
 move_to 137.44 30.583
@@ -487,7 +511,7 @@ stroke
 restore
 restore
 save
-set_fill_style 241 178 136
+set_fill_style 241 178 136 255
 save
 begin_path
 move_to 138.75 32.328
@@ -514,7 +538,7 @@ stroke
 restore
 restore
 save
-set_fill_style 243 191 156
+set_fill_style 243 191 156 255
 save
 begin_path
 move_to 140.06 34.073
@@ -541,7 +565,7 @@ stroke
 restore
 restore
 save
-set_fill_style 245 204 176
+set_fill_style 245 204 176 255
 save
 begin_path
 move_to 141.36 35.819
@@ -568,7 +592,7 @@ stroke
 restore
 restore
 save
-set_fill_style 248 216 196
+set_fill_style 248 216 196 255
 save
 begin_path
 move_to 142.67 37.565
@@ -595,7 +619,7 @@ stroke
 restore
 restore
 save
-set_fill_style 250 229 215
+set_fill_style 250 229 215 255
 save
 begin_path
 move_to 143.98 39.31
@@ -622,7 +646,7 @@ stroke
 restore
 restore
 save
-set_fill_style 252 242 235
+set_fill_style 252 242 235 255
 save
 begin_path
 move_to 145.29 41.055
@@ -649,9 +673,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to -115.8 119.6
 bezier_curve_to -128.6 97.6 -119.0 153.2 -119.0 153.2
@@ -677,9 +701,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -74.2 149.6
 bezier_curve_to -74.2 149.6 -81.4 161.2 -60.6 174.4
@@ -693,9 +717,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 65.8 102.0
 bezier_curve_to 65.8 102.0 83.49799999999999 128.82 82.9 133.6
@@ -710,9 +734,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -54.2 176.4
 bezier_curve_to -54.2 176.4 -43.0 183.6 -57.400000000000006 214.8
@@ -734,9 +758,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -21.8 193.2
 bezier_curve_to -21.8 193.2 -19.0 188.79999999999998 -21.8 189.6
@@ -748,9 +772,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -11.4 201.2
 bezier_curve_to -11.4 201.2 -8.600000000000001 196.79999999999998 -11.4 197.6
@@ -762,9 +786,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 1.8 186.0
 bezier_curve_to 1.8 186.0 4.6 181.6 1.8 182.4
@@ -776,9 +800,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -21.4 229.6
 bezier_curve_to -21.4 229.6 -21.4 223.6 -24.2 224.4
@@ -790,9 +814,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -20.2 218.8
 bezier_curve_to -20.2 218.8 -19.0 214.0 -21.8 214.8
@@ -804,9 +828,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -34.6 266.4
 line_to -44.6 274.0
@@ -838,9 +862,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -29.8 173.6
 bezier_curve_to -29.8 173.6 -15.0 167.6 24.999999999999996 173.6
@@ -862,7 +886,7 @@ stroke
 restore
 restore
 save
-set_fill_style 229 102 140
+set_fill_style 229 102 140 255
 save
 begin_path
 move_to -7.8 175.6
@@ -878,7 +902,7 @@ stroke
 restore
 restore
 save
-set_fill_style 178 50 89
+set_fill_style 178 50 89 255
 save
 begin_path
 move_to -9.831 206.5
@@ -893,7 +917,7 @@ stroke
 restore
 restore
 save
-set_fill_style 165 38 76
+set_fill_style 165 38 76 255
 save
 begin_path
 move_to -5.4 222.8
@@ -914,10 +938,10 @@ stroke
 restore
 restore
 save
-set_fill_style 255 114 127
-set_stroke_style 0 0 0
+set_fill_style 255 114 127 255
+set_stroke_style 0 0 0 255
 save
-set_stroke_style 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to -9.8 174.4
 bezier_curve_to -9.8 174.4 -12.600000000000001 196.8 -9.4 205.20000000000002
@@ -936,11 +960,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -8.2 249.2
 bezier_curve_to -8.2 249.2 -9.0 247.2 -13.399999999999999 246.79999999999998
@@ -954,7 +979,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 63 76
+set_fill_style 204 63 76 255
 save
 begin_path
 move_to 71.742 185.23
@@ -971,10 +996,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 165 25 38
+set_fill_style 0 0 0 0
+set_stroke_style 165 25 38 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 28.6 175.2
 bezier_curve_to 28.6 175.2 33.4 180.0 29.8 189.6
@@ -984,11 +1010,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -19.4 260.0
 bezier_curve_to -19.4 260.0 -23.799999999999997 247.2 -14.999999999999998 254.0
@@ -1000,11 +1027,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -14.36 261.2
 bezier_curve_to -14.36 261.2 -17.88 250.95999999999998 -10.84 256.4
@@ -1016,11 +1044,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -9.56 261.2
 bezier_curve_to -9.56 261.2 -13.08 250.95999999999998 -6.040000000000001 256.4
@@ -1032,11 +1061,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -2.96 261.4
 bezier_curve_to -2.96 261.4 -6.48 251.15999999999997 0.56 256.59999999999997
@@ -1048,11 +1078,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to 3.52 261.32
 bezier_curve_to 3.52 261.32 0.0 251.07999999999998 7.041 256.52
@@ -1064,11 +1095,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to 10.2 262.0
 bezier_curve_to 10.2 262.0 5.3999999999999995 249.6 14.6 256.0
@@ -1080,10 +1112,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 165 38 76
+set_fill_style 0 0 0 0
+set_stroke_style 165 38 76 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to -18.2 244.8
 bezier_curve_to -18.2 244.8 -5.0 242.0 1.0 245.20000000000002
@@ -1094,10 +1127,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 165 38 76
+set_fill_style 0 0 0 0
+set_stroke_style 165 38 76 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 15.8 253.6
 bezier_curve_to 15.8 253.6 27.8 240.0 39.8 244.4
@@ -1108,11 +1142,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to 33.0 237.6
 bezier_curve_to 33.0 237.6 29.0 226.79999999999998 26.2 239.6
@@ -1126,10 +1161,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 165 38 76
+set_fill_style 0 0 0 0
+set_stroke_style 165 38 76 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 47.0 244.8
 bezier_curve_to 47.0 244.8 50.6 242.4 53.0 243.60000000000002
@@ -1138,10 +1174,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 165 38 76
+set_fill_style 0 0 0 0
+set_stroke_style 165 38 76 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 53.5 228.4
 bezier_curve_to 53.5 228.4 56.4 223.5 61.2 222.70000000000002
@@ -1150,7 +1187,7 @@ stroke
 restore
 restore
 save
-set_fill_style 178 178 178
+set_fill_style 178 178 178 255
 save
 begin_path
 move_to -25.8 265.2
@@ -1164,11 +1201,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -11.8 172.0
 line_to 7.800000000000001 172.8
@@ -1182,11 +1220,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -88.9 169.3
 bezier_curve_to -88.9 169.3 -80.0 171.0 -67.4 173.60000000000002
@@ -1200,11 +1239,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -67.039 173.82
 bezier_curve_to -67.039 173.82 -61.239000000000004 175.37 -60.230000000000004 177.57999999999998
@@ -1217,9 +1257,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -67.0 173.6
 bezier_curve_to -67.0 173.6 -63.4 178.79999999999998 -59.8 178.79999999999998
@@ -1236,11 +1276,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -22.4 173.8
 bezier_curve_to -22.4 173.8 -28.849999999999998 177.3 -29.25 179.70000000000002
@@ -1253,11 +1294,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -59.885 179.26
 bezier_curve_to -59.885 179.26 -52.878 190.45 -52.661 179.23999999999998
@@ -1269,11 +1311,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -52.707 179.51
 bezier_curve_to -52.707 179.51 -44.786 190.7 -45.422 179.42
@@ -1285,11 +1328,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -45.494 179.52
 bezier_curve_to -45.494 179.52 -37.534 190.15 -38.203 180.48000000000002
@@ -1301,11 +1345,12 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
+set_line_width 0.5
 save
-set_fill_style 255 255 204
-set_stroke_style 0 0 0
+set_fill_style 255 255 204 255
+set_stroke_style 0 0 0 255
 begin_path
 move_to -38.618 179.6
 bezier_curve_to -38.618 179.6 -30.718000000000004 191.16 -30.370000000000005 181.38
@@ -1317,7 +1362,7 @@ stroke
 restore
 restore
 save
-set_fill_style 229 229 178
+set_fill_style 229 229 178 255
 save
 begin_path
 move_to -74.792 183.13
@@ -1332,7 +1377,7 @@ stroke
 restore
 restore
 save
-set_fill_style 229 229 178
+set_fill_style 229 229 178 255
 save
 begin_path
 move_to -9.724 178.47
@@ -1347,7 +1392,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 43.88 40.321
@@ -1365,7 +1410,7 @@ stroke
 restore
 restore
 save
-set_fill_style 234 142 81
+set_fill_style 234 142 81 255
 save
 begin_path
 move_to 8.088 -33.392
@@ -1383,7 +1428,7 @@ stroke
 restore
 restore
 save
-set_fill_style 239 170 124
+set_fill_style 239 170 124 255
 save
 begin_path
 move_to 8.816 -32.744
@@ -1401,7 +1446,7 @@ stroke
 restore
 restore
 save
-set_fill_style 244 198 168
+set_fill_style 244 198 168 255
 save
 begin_path
 move_to 9.544 -32.096
@@ -1419,7 +1464,7 @@ stroke
 restore
 restore
 save
-set_fill_style 249 226 211
+set_fill_style 249 226 211 255
 save
 begin_path
 move_to 10.272 -31.448
@@ -1437,9 +1482,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to 44.2 36.8
 bezier_curve_to 69.4 40.4 92.601 7.9999999999999964 94.201 -0.8000000000000043
@@ -1456,9 +1501,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 90.601 2.8
 bezier_curve_to 90.601 2.8 62.8 10.399999999999999 51.199999999999996 8.8
@@ -1471,9 +1516,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 94.401 0.6
 bezier_curve_to 94.401 0.6 65.39999999999999 12.799999999999999 55.4 12.4
@@ -1491,7 +1536,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 204 50
+set_fill_style 153 204 50 255
 save
 begin_path
 move_to 47.0 36.514
@@ -1505,7 +1550,7 @@ stroke
 restore
 restore
 save
-set_fill_style 101 153 0
+set_fill_style 101 153 0 255
 save
 begin_path
 move_to 43.377 19.83
@@ -1519,9 +1564,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to 55.4 19.6
 bezier_curve_to 55.4 19.6 51.0 16.400000000000002 51.0 18.6
@@ -1532,9 +1577,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 45.4 27.726
 bezier_curve_to 42.900999999999996 27.726 40.875 25.7 40.875 23.2
@@ -1547,7 +1592,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to -58.6 14.4
@@ -1570,9 +1615,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to -59.6 12.56
 bezier_curve_to -59.6 12.56 -62.480000000000004 -6.519999999999998 -60.32 -10.479999999999999
@@ -1594,7 +1639,7 @@ stroke
 restore
 restore
 save
-set_fill_style 235 149 92
+set_fill_style 235 149 92 255
 save
 begin_path
 move_to -51.05 -42.61
@@ -1617,7 +1662,7 @@ stroke
 restore
 restore
 save
-set_fill_style 242 184 146
+set_fill_style 242 184 146 255
 save
 begin_path
 move_to -51.5 -41.62
@@ -1640,7 +1685,7 @@ stroke
 restore
 restore
 save
-set_fill_style 248 220 200
+set_fill_style 248 220 200 255
 save
 begin_path
 move_to -51.95 -40.63
@@ -1663,9 +1708,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to -59.6 12.46
 bezier_curve_to -59.6 12.46 -62.480000000000004 -6.52 -60.32 -10.48
@@ -1687,9 +1732,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -62.7 6.2
 bezier_curve_to -62.7 6.2 -84.30000000000001 -3.999999999999999 -85.2 -4.8
@@ -1701,9 +1746,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -79.8 0.0
 bezier_curve_to -79.8 0.0 -61.4 3.6 -61.4 8.0
@@ -1715,7 +1760,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 204 50
+set_fill_style 153 204 50 255
 save
 begin_path
 move_to -71.4 3.8
@@ -1728,9 +1773,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 14.595 46.349
 bezier_curve_to 14.098 44.607 15.409 44.738 17.2 44.199999999999996
@@ -1781,9 +1826,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 209.4 -120.0
 bezier_curve_to 209.4 -120.0 183.8 -112.0 181.0 -93.2
@@ -1803,9 +1848,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 264.02 -120.99
 bezier_curve_to 264.02 -120.99 266.12 -129.92 261.28 -125.08
@@ -1820,7 +1865,7 @@ stroke
 restore
 restore
 save
-set_fill_style 50 50 50
+set_fill_style 50 50 50 255
 save
 begin_path
 move_to 263.65 -120.63
@@ -1836,9 +1881,9 @@ stroke
 restore
 restore
 save
-set_fill_style 102 102 102
+set_fill_style 102 102 102 255
 save
-set_fill_style 102 102 102
+set_fill_style 102 102 102 255
 begin_path
 move_to 263.27 -120.27
 bezier_curve_to 263.27 -120.27 265.34999999999997 -128.82999999999998 260.69 -124.17
@@ -1853,9 +1898,9 @@ stroke
 restore
 restore
 save
-set_fill_style 153 153 153
+set_fill_style 153 153 153 255
 save
-set_fill_style 153 153 153
+set_fill_style 153 153 153 255
 begin_path
 move_to 262.9 -119.92
 bezier_curve_to 262.9 -119.92 264.96999999999997 -128.29 260.39 -123.71000000000001
@@ -1870,9 +1915,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 262.53 -119.56
 bezier_curve_to 262.53 -119.56 264.59 -127.74000000000001 260.09999999999997 -123.26
@@ -1887,9 +1932,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to 262.15 -119.2
 bezier_curve_to 262.15 -119.2 264.2 -127.2 259.79999999999995 -122.8
@@ -1904,7 +1949,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 38 0
+set_fill_style 153 38 0 255
 save
 begin_path
 move_to 50.6 84.0
@@ -1937,9 +1982,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 189.0 278.0
 bezier_curve_to 189.0 278.0 173.5 241.5 161.0 232.0
@@ -1951,9 +1996,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 236.0 285.5
 bezier_curve_to 236.0 285.5 209.5 230.5 191.0 206.5
@@ -1967,9 +2012,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 292.5 237.0
 bezier_curve_to 292.5 237.0 230.0 177.5 228.5 175.0
@@ -1981,9 +2026,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 104.0 280.5
 bezier_curve_to 104.0 280.5 123.5 228.5 142.5 251.0
@@ -1996,9 +2041,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 294.5 153.0
 bezier_curve_to 294.5 153.0 249.5 124.5 242.0 123.0
@@ -2010,9 +2055,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 143.8 259.6
 bezier_curve_to 143.8 259.6 164.20000000000002 257.6 171.0 250.8
@@ -2082,9 +2127,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 109.4 -97.2
 bezier_curve_to 109.4 -97.2 97.801 -105.2 93.801 -104.8
@@ -2125,7 +2170,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 180.8 -106.4
@@ -2146,7 +2191,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 168.33 -108.51
@@ -2192,7 +2237,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 91.696 -122.74
@@ -2223,7 +2268,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 59.198 -115.39
@@ -2256,7 +2301,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 45.338 -71.179
@@ -2274,7 +2319,7 @@ stroke
 restore
 restore
 save
-set_fill_style 204 114 38
+set_fill_style 204 114 38 255
 save
 begin_path
 move_to 17.8 -123.76
@@ -2288,9 +2333,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 33.2 -114.0
 bezier_curve_to 33.2 -114.0 18.400000000000002 -112.2 14.000000000000004 -111.0
@@ -2378,10 +2423,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 76 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 76 0 0 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 51.4 85.0
 bezier_curve_to 51.4 85.0 36.4 68.2 28.0 65.6
@@ -2391,10 +2437,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 76 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 76 0 0 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 24.8 64.2
 bezier_curve_to 24.8 64.2 -0.3999999999999986 56.2 -15.8 60.400000000000006
@@ -2404,10 +2451,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 76 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 76 0 0 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 21.2 63.0
 bezier_curve_to 21.2 63.0 4.199999999999999 55.8 -10.600000000000001 53.6
@@ -2418,10 +2466,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 76 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 76 0 0 255
+set_line_width 2
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 0
 begin_path
 move_to 22.2 63.4
 bezier_curve_to 22.2 63.4 6.799999999999999 52.4 5.800000000000001 51.0
@@ -2432,9 +2481,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 20.895 54.407
 bezier_curve_to 22.437 55.87 49.4 84.8 49.4 84.8
@@ -2610,7 +2659,7 @@ stroke
 restore
 restore
 save
-set_fill_style 76 0 0
+set_fill_style 76 0 0 255
 save
 begin_path
 move_to -3.0 42.8
@@ -2625,7 +2674,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 204 50
+set_fill_style 153 204 50 255
 save
 begin_path
 move_to -61.009 11.603
@@ -2639,7 +2688,7 @@ stroke
 restore
 restore
 save
-set_fill_style 101 153 0
+set_fill_style 101 153 0 255
 save
 begin_path
 move_to -61.009 11.403
@@ -2653,9 +2702,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -65.4 11.546
 bezier_curve_to -66.025 11.546 -66.531 10.405999999999999 -66.531 9.0
@@ -2668,9 +2717,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -65.4 9.0
 close_path
@@ -2679,9 +2728,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -111.0 109.6
 bezier_curve_to -111.0 109.6 -116.6 119.6 -91.8 113.6
@@ -2705,7 +2754,7 @@ stroke
 restore
 restore
 save
-set_fill_style 229 153 153
+set_fill_style 229 153 153 255
 save
 begin_path
 move_to -112.2 113.6
@@ -2727,7 +2776,7 @@ stroke
 restore
 restore
 save
-set_fill_style 178 101 101
+set_fill_style 178 101 101 255
 save
 begin_path
 move_to -109.0 131.05
@@ -2749,7 +2798,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 38 0
+set_fill_style 153 38 0 255
 save
 begin_path
 move_to -111.6 110.0
@@ -2778,9 +2827,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to -120.2 114.6
 bezier_curve_to -120.2 114.6 -122.2 113.19999999999999 -126.60000000000001 119.19999999999999
@@ -2794,7 +2843,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 38 0
+set_fill_style 153 38 0 255
 save
 begin_path
 move_to -98.6 54.0
@@ -2815,9 +2864,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 40.8 -12.2
 bezier_curve_to 41.459999999999994 -12.553999999999998 41.451 -13.524 42.031 -13.697
@@ -2852,9 +2901,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 31.959 -16.666
 bezier_curve_to 32.083 -16.743000000000002 31.928 -17.166 32.037 -17.382
@@ -2880,9 +2929,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 94.771 -26.977
 bezier_curve_to 96.16 -25.185 96.45 -22.39 94.401 -21.0
@@ -2910,9 +2959,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 57.611 -8.591
 bezier_curve_to 56.123999999999995 -6.739999999999999 52.711999999999996 -4.170999999999999 55.629 -2.2429999999999994
@@ -2992,9 +3041,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 2.2 -58.0
 bezier_curve_to 2.2 -58.0 -7.037999999999999 -60.872 -18.2 -35.2
@@ -3032,9 +3081,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -17.8 -41.6
 line_to -33.8 -36.4
@@ -3047,9 +3096,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -57.8 -35.2
 bezier_curve_to -57.8 -35.2 -59.8 -34.0 -60.199999999999996 -31.200000000000003
@@ -3063,9 +3112,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -66.6 26.0
 bezier_curve_to -66.6 26.0 -75.0 22.0 -78.19999999999999 18.4
@@ -3083,9 +3132,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -79.2 40.4
 bezier_curve_to -79.2 40.4 -94.60000000000001 44.8 -98.2 35.199999999999996
@@ -3100,9 +3149,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to 149.2 118.6
 bezier_curve_to 148.76999999999998 120.74 147.1 121.53999999999999 145.2 122.19999999999999
@@ -3133,9 +3182,9 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 save
-set_fill_style 255 255 255
+set_fill_style 255 255 255 255
 begin_path
 move_to 139.6 138.2
 bezier_curve_to 139.59 136.45999999999998 137.98999999999998 134.70999999999998 139.2 133.0
@@ -3153,9 +3202,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -26.6 129.2
 bezier_curve_to -26.6 129.2 -43.458 139.33999999999997 -29.400000000000002 123.99999999999999
@@ -3177,9 +3226,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -19.195 123.23
 bezier_curve_to -19.195 123.23 -17.785 110.19 -9.307 111.86
@@ -3197,9 +3246,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -23.0 148.8
 bezier_curve_to -23.0 148.8 -38.2 146.4 -21.4 144.8
@@ -3217,9 +3266,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -3.48 141.4
 bezier_curve_to -3.48 141.4 -12.062000000000001 140.57 -3.461 139.76000000000002
@@ -3237,9 +3286,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -11.4 143.6
 bezier_curve_to -11.4 143.6 -6.2 143.2 -7.4 144.79999999999998
@@ -3251,9 +3300,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -18.6 145.2
 bezier_curve_to -18.6 145.2 -13.400000000000002 144.79999999999998 -14.600000000000001 146.39999999999998
@@ -3265,9 +3314,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -29.0 146.8
 bezier_curve_to -29.0 146.8 -23.8 146.4 -25.0 148.0
@@ -3279,9 +3328,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -36.6 147.6
 bezier_curve_to -36.6 147.6 -31.400000000000002 147.2 -32.6 148.79999999999998
@@ -3293,9 +3342,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 1.8 108.0
 line_to 5.0 109.6
@@ -3307,9 +3356,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -8.2 113.6
 bezier_curve_to -8.2 113.6 -1.693999999999999 111.46 -4.199999999999999 114.8
@@ -3321,9 +3370,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -19.4 118.4
 bezier_curve_to -19.4 118.4 -14.2 118.0 -15.399999999999999 119.60000000000001
@@ -3335,9 +3384,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -27.0 124.4
 bezier_curve_to -27.0 124.4 -21.8 124.0 -23.0 125.60000000000001
@@ -3349,9 +3398,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -33.8 129.2
 bezier_curve_to -33.8 129.2 -28.599999999999998 128.79999999999998 -29.799999999999997 130.39999999999998
@@ -3363,9 +3412,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 5.282 135.6
 bezier_curve_to 5.282 135.6 12.203 135.07 10.606 137.2
@@ -3377,9 +3426,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 15.682 130.8
 bezier_curve_to 15.682 130.8 22.603 130.27 21.006 132.4
@@ -3391,9 +3440,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 26.482 126.4
 bezier_curve_to 26.482 126.4 33.403 125.87 31.805999999999997 128.0
@@ -3405,9 +3454,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 36.882 121.6
 bezier_curve_to 36.882 121.6 43.803 121.07 42.205999999999996 123.19999999999999
@@ -3419,9 +3468,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 9.282 103.6
 bezier_curve_to 9.282 103.6 16.203 103.07 14.606 105.19999999999999
@@ -3433,9 +3482,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 19.282 100.4
 bezier_curve_to 19.282 100.4 26.203 99.866 24.606 102.0
@@ -3447,9 +3496,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -3.4 140.4
 bezier_curve_to -3.4 140.4 1.8000000000000003 140.0 0.6000000000000001 141.6
@@ -3461,7 +3510,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 38 0
+set_fill_style 153 38 0 255
 save
 begin_path
 move_to -76.6 41.2
@@ -3474,7 +3523,7 @@ stroke
 restore
 restore
 save
-set_fill_style 153 38 0
+set_fill_style 153 38 0 255
 save
 begin_path
 move_to -95.0 55.2
@@ -3487,9 +3536,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -74.2 -19.4
 line_to -74.4 -16.2
@@ -3502,9 +3551,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -70.216 -18.135
 bezier_curve_to -70.64699999999999 -18.551000000000002 -70.428 -19.296000000000003 -70.836 -19.556
@@ -3539,9 +3588,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -73.8 -16.4
 bezier_curve_to -73.8 -16.4 -73.39999999999999 -9.599999999999998 -71.0 -7.999999999999998
@@ -3559,11 +3608,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -74.6 2.2
 bezier_curve_to -74.6 2.2 -83.11999999999999 -0.5909999999999997 -101.6 2.8000000000000003
@@ -3575,11 +3626,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -72.502 2.129
 bezier_curve_to -72.502 2.129 -80.74799999999999 -1.3889999999999998 -99.453 0.3919999999999999
@@ -3591,11 +3644,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -70.714 2.222
 bezier_curve_to -70.714 2.222 -78.676 -1.8990000000000005 -97.461 -1.5140000000000002
@@ -3607,11 +3662,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -69.444 2.445
 bezier_curve_to -69.444 2.445 -76.268 -1.8620000000000005 -93.142 -2.9600000000000004
@@ -3623,11 +3680,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 45.84 12.961
 bezier_curve_to 45.84 12.961 44.910000000000004 13.605 45.124 12.424
@@ -3639,11 +3698,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 42.446 13.6
 bezier_curve_to 42.446 13.6 41.57 14.315 41.690999999999995 13.121
@@ -3655,11 +3716,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 39.16 14.975
 bezier_curve_to 39.16 14.975 38.331999999999994 15.747 38.373999999999995 14.546999999999999
@@ -3671,11 +3734,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 36.284 16.838
 bezier_curve_to 36.284 16.838 35.539 17.532 35.577 16.453
@@ -3687,9 +3752,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 4.6 164.8
 bezier_curve_to 4.6 164.8 -10.6 162.4 6.199999999999999 160.8
@@ -3707,9 +3772,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 77.6 127.4
 bezier_curve_to 77.6 127.4 74.6 129.0 73.39999999999999 131.6
@@ -3727,9 +3792,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 18.882 158.91
 bezier_curve_to 18.882 158.91 24.111 158.68 22.958000000000002 160.23
@@ -3741,9 +3806,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 11.68 160.26
 bezier_curve_to 11.68 160.26 16.908 160.04 15.756 161.59
@@ -3755,9 +3820,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 1.251 161.51
 bezier_curve_to 1.251 161.51 6.48 161.28 5.327 162.82999999999998
@@ -3769,9 +3834,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -6.383 162.06
 bezier_curve_to -6.383 162.06 -1.154 161.83 -2.3070000000000004 163.38
@@ -3783,9 +3848,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 35.415 151.51
 bezier_curve_to 35.415 151.51 42.375 151.20999999999998 40.839999999999996 153.26999999999998
@@ -3797,9 +3862,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 45.73 147.09
 bezier_curve_to 45.73 147.09 51.68899999999999 143.79 51.154999999999994 148.85
@@ -3811,9 +3876,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 54.862 144.27
 bezier_curve_to 54.862 144.27 62.021 140.57000000000002 60.287 146.04000000000002
@@ -3825,9 +3890,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 64.376 139.45
 bezier_curve_to 64.376 139.45 68.735 134.54999999999998 69.801 141.20999999999998
@@ -3839,9 +3904,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 26.834 156.0
 bezier_curve_to 26.834 156.0 32.062 155.77 30.91 157.32
@@ -3853,11 +3918,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 62.434 34.603
 bezier_curve_to 62.434 34.603 61.708 35.268 61.707 34.197
@@ -3869,9 +3936,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to 65.4 98.4
 bezier_curve_to 65.4 98.4 87.40100000000001 120.80000000000001 96.601 124.4
@@ -3888,11 +3955,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 7.0 137.2
 bezier_curve_to 7.0 137.2 6.8 135.39999999999998 8.6 136.2
@@ -3904,11 +3973,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 17.4 132.8
 bezier_curve_to 17.4 132.8 17.2 131.0 19.0 131.8
@@ -3920,11 +3991,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 29.0 128.8
 bezier_curve_to 29.0 128.8 28.8 127.00000000000001 30.6 127.80000000000001
@@ -3936,11 +4009,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 39.0 124.0
 bezier_curve_to 39.0 124.0 38.8 122.2 40.6 123.0
@@ -3952,11 +4027,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -19.0 146.8
 bezier_curve_to -19.0 146.8 -19.2 145.0 -17.4 145.8
@@ -3968,11 +4045,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -27.8 148.4
 bezier_curve_to -27.8 148.4 -28.0 146.6 -26.2 147.4
@@ -3984,11 +4063,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -35.8 148.8
 bezier_curve_to -35.8 148.8 -36.0 147.0 -34.199999999999996 147.8
@@ -4000,11 +4081,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 11.526 104.46
 bezier_curve_to 11.526 104.46 11.081999999999999 106.46 12.631 105.25
@@ -4016,11 +4099,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 22.726 102.66
 bezier_curve_to 22.726 102.66 21.363 101.47 23.230999999999998 100.85
@@ -4032,11 +4117,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 1.885 108.77
 bezier_curve_to 1.885 108.77 1.376 110.36999999999999 3.0869999999999997 109.39
@@ -4048,11 +4135,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -18.038 119.79
 bezier_curve_to -18.038 119.79 -19.115000000000002 121.08000000000001 -17.162 120.82000000000001
@@ -4064,11 +4153,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -6.8 113.67
 bezier_curve_to -6.8 113.67 -7.611 115.14 -5.742 114.51
@@ -4080,11 +4171,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -25.078 124.91
 bezier_curve_to -25.078 124.91 -25.951 125.95 -24.369 125.75
@@ -4096,11 +4189,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -32.677 130.82
 bezier_curve_to -32.677 130.82 -33.682 131.87 -32.091 131.75
@@ -4112,11 +4207,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 36.855 98.898
 bezier_curve_to 36.855 98.898 35.653999999999996 97.54299999999999 37.586 97.158
@@ -4128,11 +4225,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 3.4 163.2
 bezier_curve_to 3.4 163.2 3.1999999999999997 161.39999999999998 5.0 162.2
@@ -4144,11 +4243,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 13.8 161.6
 bezier_curve_to 13.8 161.6 13.600000000000001 159.79999999999998 15.4 160.6
@@ -4160,11 +4261,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 20.6 160.0
 bezier_curve_to 20.6 160.0 20.400000000000002 158.2 22.200000000000003 159.0
@@ -4176,11 +4279,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 28.225 157.97
 bezier_curve_to 28.225 157.97 27.788 156.21 29.678 156.77
@@ -4192,11 +4297,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 38.625 153.57
 bezier_curve_to 38.625 153.57 38.188 151.81 40.078 152.37
@@ -4208,11 +4315,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -1.8 142.0
 bezier_curve_to -1.8 142.0 -2.0 140.2 -0.19999999999999996 141.0
@@ -4224,11 +4333,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to -11.8 146.0
 bezier_curve_to -11.8 146.0 -12.0 144.2 -10.200000000000001 145.0
@@ -4240,11 +4351,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 49.503 148.96
 bezier_curve_to 49.503 148.96 48.938 147.24 50.864 147.66
@@ -4256,11 +4369,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 57.903 146.56
 bezier_curve_to 57.903 146.56 57.338 144.84 59.263999999999996 145.26
@@ -4272,11 +4387,13 @@ stroke
 restore
 restore
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 save
-set_fill_style 255 255 255
-set_stroke_style 0 0 0
+set_fill_style 255 255 255 255
+set_stroke_style 0 0 0 255
+set_line_width 0.1
 begin_path
 move_to 67.503 141.56
 bezier_curve_to 67.503 141.56 66.938 139.84 68.864 140.26
@@ -4288,9 +4405,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -43.8 148.4
 bezier_curve_to -43.8 148.4 -38.599999999999994 148.0 -39.8 149.6
@@ -4302,9 +4419,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -13.0 162.4
 bezier_curve_to -13.0 162.4 -7.8 162.0 -9.0 163.6
@@ -4316,9 +4433,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -21.8 162.0
 bezier_curve_to -21.8 162.0 -16.6 161.6 -17.8 163.2
@@ -4330,9 +4447,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -117.17 150.18
 bezier_curve_to -117.17 150.18 -112.12 151.5 -113.78 152.62
@@ -4344,9 +4461,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -115.17 140.58
 bezier_curve_to -115.17 140.58 -110.12 141.9 -111.78 143.02
@@ -4358,9 +4475,9 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 save
-set_fill_style 0 0 0
+set_fill_style 0 0 0 255
 begin_path
 move_to -122.37 136.18
 bezier_curve_to -122.37 136.18 -117.32000000000001 137.5 -118.98 138.62
@@ -4372,9 +4489,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -42.6 211.2
 line_to -48.2 213.2
@@ -4386,9 +4503,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 45.116 303.85
 bezier_curve_to 45.257 304.1 45.312 304.52000000000004 45.604 304.54
@@ -4404,9 +4521,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 34.038 308.58
 bezier_curve_to 34.785999999999994 309.99 34.659 311.84999999999997 36.074 312.41999999999996
@@ -4422,9 +4539,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -5.564 303.39
 bezier_curve_to -5.672 303.01 -5.71 302.55 -5.545 302.22999999999996
@@ -4442,9 +4559,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -31.202 296.6
 bezier_curve_to -28.568 294.1 -25.778000000000002 291.14000000000004 -26.220000000000002 287.43
@@ -4458,9 +4575,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -44.776 290.64
 bezier_curve_to -44.253 290.26 -44.55500000000001 289.77 -44.338 289.44
@@ -4477,9 +4594,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -28.043 310.18
 bezier_curve_to -27.599 309.31 -26.023 308.11 -26.136 307.22
@@ -4492,9 +4609,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -13.6 293.0
 bezier_curve_to -13.2 292.33 -12.491999999999999 292.81 -12.033 292.54
@@ -4520,9 +4637,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 46.2 347.4
 bezier_curve_to 46.2 347.4 53.6 327.0 49.2 315.79999999999995
@@ -4535,9 +4652,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 31.4 344.8
 bezier_curve_to 31.4 344.8 36.8 336.0 28.799999999999997 317.6
@@ -4549,9 +4666,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 21.4 342.8
 bezier_curve_to 21.4 342.8 21.2 322.8 21.599999999999998 319.8
@@ -4563,9 +4680,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 11.8 310.8
 bezier_curve_to 11.8 310.8 17.8 324.40000000000003 7.800000000000001 342.8
@@ -4577,9 +4694,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -7.4 342.4
 bezier_curve_to -7.4 342.4 -8.4 326.79999999999995 -6.6000000000000005 324.59999999999997
@@ -4594,9 +4711,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -11.0 314.8
 bezier_curve_to -11.0 314.8 -17.6 325.6 -19.4 344.6
@@ -4608,9 +4725,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -32.8 334.6
 bezier_curve_to -32.8 334.6 -27.799999999999997 329.20000000000005 -26.4 324.20000000000005
@@ -4623,9 +4740,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -38.6 329.6
 bezier_curve_to -38.6 329.6 -35.2 312.20000000000005 -34.4 311.40000000000003
@@ -4638,9 +4755,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -44.4 313.0
 bezier_curve_to -44.4 313.0 -32.8 290.6 -54.599999999999994 316.4
@@ -4651,9 +4768,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to -59.8 298.4
 bezier_curve_to -59.8 298.4 -55.0 279.59999999999997 -52.4 279.79999999999995
@@ -4666,9 +4783,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 270.5 287.0
 bezier_curve_to 270.5 287.0 258.5 277.0 256.0 273.5
@@ -4680,9 +4797,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 276.0 265.0
 bezier_curve_to 276.0 265.0 255.0 250.0 251.5 242.5
@@ -4694,9 +4811,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 293.0 111.0
 bezier_curve_to 293.0 111.0 281.0 103.0 279.5 105.0
@@ -4708,9 +4825,9 @@ stroke
 restore
 restore
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 save
-set_fill_style 204 204 204
+set_fill_style 204 204 204 255
 begin_path
 move_to 301.5 191.5
 line_to 284.0 179.5
@@ -4722,11 +4839,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to -89.25 169.0
 line_to -67.25 173.75
@@ -4735,11 +4852,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to -39.0 331.0
 bezier_curve_to -39.0 331.0 -39.5 327.5 -48.5 338.0
@@ -4748,11 +4865,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to -33.5 336.0
 bezier_curve_to -33.5 336.0 -31.5 329.5 -38.0 334.0
@@ -4761,11 +4878,11 @@ stroke
 restore
 restore
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 save
-set_fill_style 0 0 0
-set_stroke_style 0 0 0
+set_fill_style 0 0 0 0
+set_stroke_style 0 0 0 255
 begin_path
 move_to 20.5 344.5
 bezier_curve_to 20.5 344.5 22.0 333.5 10.5 346.5

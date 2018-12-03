@@ -1,5 +1,5 @@
-#![crate_name="orbgl"]
-#![crate_type="lib"]
+#![crate_name = "orbgl"]
+#![crate_type = "lib"]
 #![feature(alloc)]
 #![feature(asm)]
 
@@ -18,17 +18,16 @@ pub use canvas::Canvas;
 pub use canvaspaintstate::CanvasPaintState;
 
 
-
-#[path="canvas/point.rs"]
+#[path = "canvas/point.rs"]
 pub mod point;
-#[path="canvas/edge.rs"]
+#[path = "canvas/edge.rs"]
 pub mod edge;
-#[path="canvas/pathbuilder.rs"]
+#[path = "canvas/pathbuilder.rs"]
 pub mod pathbuilder;
-#[path="canvas/matrix.rs"]
+#[path = "canvas/matrix.rs"]
 pub mod matrix;
-#[path="canvas/canvas.rs"]
+#[path = "canvas/canvas.rs"]
 pub mod canvas;
-#[path="canvas/canvaspaintstate.rs"]
+#[path = "canvas/canvaspaintstate.rs"]
 pub mod canvaspaintstate;
 

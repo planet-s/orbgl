@@ -12,8 +12,8 @@ pub struct CanvasPaintState {
 impl CanvasPaintState {
     pub fn new() -> Self {
         CanvasPaintState {
-            fill_style: Color::rgba(0,0,0,0),
-            stroke_style: Color::rgba(0,0,0,0),
+            fill_style: Color::rgba(0, 0, 0, 0),
+            stroke_style: Color::rgba(0, 0, 0, 0),
             line_width: 1.0,
             transform: Matrix::new(),
         }

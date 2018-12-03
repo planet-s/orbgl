@@ -27,7 +27,6 @@ fn main() {
     //Transform the canvas
     canvas.transform(0.5, 0.0, 0.0, 0.5, 0.0, 0.0);
 
-
     //read a textfile with commands
     let file_path = "assets/tiger.txt";
 
@@ -81,12 +80,17 @@ fn main() {
             let r: u8 = tokens[1].parse().unwrap();
             let g: u8 = tokens[2].parse().unwrap();
             let b: u8 = tokens[3].parse().unwrap();
-            canvas.set_fill_style(Color::rgb(r, g, b));
+            let a: u8 = tokens[4].parse().unwrap();
+            canvas.set_fill_style(Color::rgba(r, g, b, a));
         } else if tokens[0] == "set_stroke_style" {
             let r: u8 = tokens[1].parse().unwrap();
             let g: u8 = tokens[2].parse().unwrap();
             let b: u8 = tokens[3].parse().unwrap();
-            canvas.set_stroke_style(Color::rgb(r, g, b));
+            let a: u8 = tokens[4].parse().unwrap();
+            canvas.set_stroke_style(Color::rgba(r, g, b, a));
+        } else if tokens[0] == "set_line_width" {
+            let line_width: f32 = tokens[1].parse().unwrap();
+            canvas.set_line_width(line_width);
         }
     }
 

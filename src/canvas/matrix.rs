@@ -36,7 +36,7 @@ impl Matrix {
         self.transform(cos, sin, -sin, cos, 0.0, 0.0);
     }
 
-    pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32){
+    pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
         self.a = a;
         self.b = b;
         self.c = c;
@@ -46,13 +46,13 @@ impl Matrix {
     }
 
 
-    pub fn transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32){
-        let org_a= self.a;
-        let org_b= self.b;
-        let org_c= self.c;
-        let org_d= self.d;
-        let org_e= self.e;
-        let org_f= self.f;
+    pub fn transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
+        let org_a = self.a;
+        let org_b = self.b;
+        let org_c = self.c;
+        let org_d = self.d;
+        let org_e = self.e;
+        let org_f = self.f;
 
         self.a = org_a * a + org_c * b;
         self.b = org_b * a + org_d * b;
@@ -62,10 +62,10 @@ impl Matrix {
         self.f = org_b * e + org_d * f + org_f;
     }
 
-    pub fn apply_to_point(&mut self, point: Point) -> (Point){
+    pub fn apply_to_point(&mut self, point: Point) -> (Point) {
         Point::new(
             point.x * self.a + point.y * self.c + self.e,
-            point.x * self.b + point.y * self.d + self.f
+            point.x * self.b + point.y * self.d + self.f,
         )
     }
 }
