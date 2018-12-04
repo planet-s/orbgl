@@ -2,8 +2,6 @@
 extern crate orbclient;
 extern crate orbgl;
 
-use std::fs::File;
-use std::io::Read;
 
 use orbclient::{Color, Window, Renderer, EventOption};
 use orbgl::Canvas;

@@ -70,10 +70,10 @@ The first goal is to be compatible with HTML Canvas.
 - [ ] measure_text()
 
 ##### Rectangles
-- [ ] rect()
-- [ ] fill_rect()
-- [ ] stroke_rect()
-- [ ] clear_rect()
+- [x] rect()
+- [x] fill_rect()
+- [x] stroke_rect()
+- [x] clear_rect()
 
 ##### Image
 - [ ] draw_image()

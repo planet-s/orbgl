@@ -7,6 +7,7 @@ pub struct CanvasPaintState {
     pub stroke_style: Color,
     pub line_width: f32,
     pub transform: Matrix,
+    pub override_color: bool,
 }
 
 impl CanvasPaintState {
@@ -16,6 +17,7 @@ impl CanvasPaintState {
             stroke_style: Color::rgba(0, 0, 0, 0),
             line_width: 1.0,
             transform: Matrix::new(),
+            override_color: false,
         }
     }
 }

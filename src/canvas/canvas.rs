@@ -33,8 +33,6 @@ impl Canvas {
     }
 
     fn pixel(&mut self, x: i32, y: i32, color: Color) {
-        let replace = false;
-
         let w = self.width as i32;
         let h = self.height as i32;
         let data = unsafe { &mut self.data };
@@ -44,7 +42,7 @@ impl Canvas {
             let alpha = (new >> 24) & 0xFF;
             let old = unsafe { &mut data[y as usize * w as usize + x as usize].data };
 
-            if alpha >= 255 || replace {
+            if self.state.override_color {
                 *old = new;
             } else if alpha > 0 {
                 let n_alpha = 255 - alpha;
@@ -56,7 +54,7 @@ impl Canvas {
         }
     }
 
-    pub fn line(&mut self, argx1: i32, argy1: i32, argx2: i32, argy2: i32, color: Color) {
+    fn line(&mut self, argx1: i32, argy1: i32, argx2: i32, argy2: i32, color: Color) {
         let mut x = argx1;
         let mut y = argy1;
 
@@ -301,6 +299,34 @@ impl Canvas {
         path_builder.line_to(x, (y + height));
         path_builder.line_to(x, y);
     }
+
+    pub fn fill_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        self.path_builder = PathBuilder::new();
+        self.rect(x, y, width, height);
+        self.fill();
+        self.path_builder = tmp;
+    }
+
+    pub fn stroke_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        self.path_builder = PathBuilder::new();
+        self.rect(x, y, width, height);
+        self.stroke();
+        self.path_builder = tmp;
+    }
+
+    pub fn clear_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        self.save();
+        self.state.override_color = true;
+        self.set_fill_style(Color::rgba(0,0,0,0));
+        self.path_builder = PathBuilder::new();
+        self.rect(x, y, width, height);
+        self.fill();
+        self.restore();
+        self.path_builder = tmp;
+    }
 }
 
 
@@ -343,8 +369,7 @@ impl Canvas {
     }
 }
 
-
-/// Transformations
+/// Styles
 #[allow(unused)]
 impl Canvas {
     pub fn set_fill_style(&mut self, color: Color) {
