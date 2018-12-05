@@ -95,7 +95,7 @@ fn main() {
     }
 
 
-    window.image_fast(0, 0, 800, 600, unsafe { &canvas.data });
+    window.image_fast(0, 0, 800, 600, &canvas.data);
 
 
     window.sync();

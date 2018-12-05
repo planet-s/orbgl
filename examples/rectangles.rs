@@ -45,7 +45,7 @@ fn main() {
     canvas.clear_rect(0.0,0.0,30.0,30.0);
 
 
-    window.image_fast(0, 0, 800, 600, unsafe { &canvas.data });
+    window.image_fast(0, 0, 800, 600, &canvas.data);
 
 
     window.sync();

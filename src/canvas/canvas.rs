@@ -6,7 +6,6 @@ use edge::EdgeType;
 use canvaspaintstate::CanvasPaintState;
 
 
-#[repr(packed)]
 #[allow(unused)]
 pub struct Canvas {
     pub width: f32,
@@ -35,7 +34,7 @@ impl Canvas {
     fn pixel(&mut self, x: i32, y: i32, color: Color) {
         let w = self.width as i32;
         let h = self.height as i32;
-        let data = unsafe { &mut self.data };
+        let data = &mut self.data;
 
         if x >= 0 && y >= 0 && x < w as i32 && y < h as i32 {
             let new = color.data;
@@ -141,16 +140,12 @@ impl Canvas {
 #[allow(unused)]
 impl Canvas {
     pub fn save(&mut self) {
-        unsafe {
-            self.saved_states.push(self.state);
-        }
+        self.saved_states.push(self.state);
     }
 
     pub fn restore(&mut self) {
-        unsafe {
-            if self.saved_states.len() > 0 {
-                self.state = self.saved_states.pop().unwrap();
-            }
+        if self.saved_states.len() > 0 {
+            self.state = self.saved_states.pop().unwrap();
         }
     }
 }
@@ -162,14 +157,12 @@ impl Canvas {
         let mut cross_points: Vec<f32> = Vec::new();
 
         let mut edges: Vec<Edge>;
-        unsafe {
-            edges = self.path_builder.build();
-        }
+        edges = self.path_builder.build();
 
 
         for edge in edges {
-            let start_point = unsafe { self.state.transform.apply_to_point(edge.start) };
-            let end_point = unsafe { self.state.transform.apply_to_point(edge.end) };
+            let start_point = self.state.transform.apply_to_point(edge.start);
+            let end_point = self.state.transform.apply_to_point(edge.end);
             let t: f32 = (((end_point.x - start_point.x) * (y as f32 - start_point.y)) / (end_point.y - start_point.y)) + start_point.x;
             if (start_point.y > y as f32) != (end_point.y > y as f32) {
                 cross_points.push(t as f32);
@@ -185,10 +178,10 @@ impl Canvas {
         let color: Color;
 
         let mut edges: Vec<Edge>;
-        unsafe {
-            color = self.state.fill_style;
-            edges = self.path_builder.build();
-        }
+
+        color = self.state.fill_style;
+        edges = self.path_builder.build();
+
 
         for y in 0..self.height as i32 {
             let mut lines = self.scanline(y as f32);
@@ -211,8 +204,8 @@ impl Canvas {
         }
 
         for edge in edges {
-            let start_point = unsafe { self.state.transform.apply_to_point(edge.start) };
-            let end_point = unsafe { self.state.transform.apply_to_point(edge.end) };
+            let start_point = self.state.transform.apply_to_point(edge.start);
+            let end_point = self.state.transform.apply_to_point(edge.end);
             self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
         }
     }
@@ -224,17 +217,17 @@ impl Canvas {
         let line_width: f32;
         let color: Color;
         let mut edges: Vec<Edge>;
-        unsafe {
-            color = self.state.stroke_style;
-            line_width = self.state.line_width;
-            edges = self.path_builder.build();
-        }
+
+        color = self.state.stroke_style;
+        line_width = self.state.line_width;
+        edges = self.path_builder.build();
+
 
         for edge in edges {
             match edge.edge_type {
                 EdgeType::Visible => {
-                    let start_point = unsafe { self.state.transform.apply_to_point(edge.start) };
-                    let end_point = unsafe { self.state.transform.apply_to_point(edge.end) };
+                    let start_point = self.state.transform.apply_to_point(edge.start);
+                    let end_point = self.state.transform.apply_to_point(edge.end);
 
                     //ToDo: line width
                     let mut new_color = Color::rgba(color.r(), color.g(), color.b(), color.a());
@@ -261,38 +254,38 @@ impl Canvas {
 
     ///
     pub fn close_path(&mut self) {
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.close_path();
     }
 
     /// move to position
     pub fn move_to(&mut self, x: f32, y: f32) {
         let p = Point::new(x as f32, y as f32);
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.move_to(x, y);
     }
 
     /// create a line between the last and new point
     pub fn line_to(&mut self, x: f32, y: f32) {
         let p = Point::new(x as f32, y as f32);
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.line_to(x, y);
     }
 
     /// quadratic bezier curve
     pub fn quadratic_curve_to(&mut self, cpx: f32, cpy: f32, x: f32, y: f32) {
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.quadratic_curve_to(cpx, cpy, x, y);
     }
 
     /// cubic bezier curve
     pub fn bezier_curve_to(&mut self, cp1x: f32, cp1y: f32, cp2x: f32, cp2y: f32, x: f32, y: f32) {
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.bezier_curve_to(cp1x, cp1y, cp2x, cp2y, x, y);
     }
 
     pub fn rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
-        let path_builder = unsafe { &mut self.path_builder };
+        let path_builder = &mut self.path_builder;
         path_builder.move_to(x, y);
         path_builder.line_to((x + width), y);
         path_builder.line_to((x + width), (y + height));
@@ -301,7 +294,7 @@ impl Canvas {
     }
 
     pub fn fill_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
-        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        let tmp: PathBuilder = self.path_builder.clone();
         self.path_builder = PathBuilder::new();
         self.rect(x, y, width, height);
         self.fill();
@@ -309,7 +302,7 @@ impl Canvas {
     }
 
     pub fn stroke_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
-        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        let tmp: PathBuilder = self.path_builder.clone();
         self.path_builder = PathBuilder::new();
         self.rect(x, y, width, height);
         self.stroke();
@@ -317,10 +310,10 @@ impl Canvas {
     }
 
     pub fn clear_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
-        let tmp:PathBuilder = unsafe { self.path_builder.clone() };
+        let tmp: PathBuilder = self.path_builder.clone();
         self.save();
         self.state.override_color = true;
-        self.set_fill_style(Color::rgba(0,0,0,0));
+        self.set_fill_style(Color::rgba(0, 0, 0, 0));
         self.path_builder = PathBuilder::new();
         self.rect(x, y, width, height);
         self.fill();
@@ -335,37 +328,27 @@ impl Canvas {
 impl Canvas {
     /// Scales the current drawing bigger or smaller
     pub fn scale(&mut self, sx: f32, sy: f32) {
-        unsafe {
-            self.state.transform.scale(sx, sy);
-        }
+        self.state.transform.scale(sx, sy);
     }
 
     /// Rotates the current drawing
     pub fn rotate(&mut self, angle: f32) {
-        unsafe {
-            self.state.transform.rotate(angle);
-        }
+        self.state.transform.rotate(angle);
     }
 
     /// Remaps the (0,0) position on the canvas
     pub fn translate(&mut self, tx: f32, ty: f32) {
-        unsafe {
-            self.state.transform.translate(tx, ty);
-        }
+        self.state.transform.translate(tx, ty);
     }
 
     /// Replaces the current transformation matrix for the drawing
     pub fn transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
-        unsafe {
-            self.state.transform.transform(a, b, c, d, e, f);
-        }
+        self.state.transform.transform(a, b, c, d, e, f);
     }
 
     /// Resets the current transform to the identity matrix. Then runs transform()
     pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
-        unsafe {
-            self.state.transform.set_transform(a, b, c, d, e, f);
-        }
+        self.state.transform.set_transform(a, b, c, d, e, f);
     }
 }
 
