@@ -1,4 +1,3 @@
-use alloc::vec::Vec;
 use edge::Edge;
 use edge::EdgeType;
 use point::Point;

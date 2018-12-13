@@ -1,9 +1,6 @@
 #![crate_name = "orbgl"]
 #![crate_type = "lib"]
-#![feature(alloc)]
-#![feature(asm)]
 
-extern crate alloc;
 extern crate core;
 extern crate orbclient;
 

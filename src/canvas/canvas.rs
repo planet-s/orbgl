@@ -182,8 +182,33 @@ impl Canvas {
         color = self.state.fill_style;
         edges = self.path_builder.build();
 
+        let mut min_y = self.height;
+        let mut max_y = 0.0;
+        for edge in &edges {
+            let start_point = self.state.transform.apply_to_point(edge.start);
+            let end_point = self.state.transform.apply_to_point(edge.end);
 
-        for y in 0..self.height as i32 {
+            if(start_point.y < min_y) {
+                min_y = start_point.y;
+            }
+
+            if(end_point.y < min_y) {
+                min_y = end_point.y;
+            }
+
+            if(start_point.y > max_y) {
+                max_y = start_point.y;
+            }
+
+            if(end_point.y > max_y) {
+                max_y = end_point.y;
+            }
+            //self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
+        }
+
+
+
+        for y in min_y as i32..max_y as i32 {
             let mut lines = self.scanline(y as f32);
 
 
@@ -194,7 +219,7 @@ impl Canvas {
                     let x_stop = lines[(j + 1) as usize];
 
 
-                    self.line((x_start + 1.0) as i32, y, (x_stop) as i32, y, color);
+                    self.line((x_start+1.0) as i32, y, (x_stop) as i32, y, color);
 
                     j = j + 2;
                 } else {
@@ -203,7 +228,7 @@ impl Canvas {
             }
         }
 
-        for edge in edges {
+        for edge in &edges {
             let start_point = self.state.transform.apply_to_point(edge.start);
             let end_point = self.state.transform.apply_to_point(edge.end);
             self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
