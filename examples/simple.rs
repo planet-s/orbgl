@@ -89,6 +89,25 @@ fn main() {
     //Fill the polygon and draw a stroke
     canvas.fill();
 
+    canvas.set_transform(1.0,0.0,0.0,1.0,0.0,0.0);
+    canvas.begin_path();
+
+
+    canvas.begin_path();
+    canvas.set_fill_style(Color::rgba(255, 0, 0, 255));
+    canvas.arc(200.0, 200.0, 50.0,1.0 * std::f32::consts::PI,  2.0 * std::f32::consts::PI);
+    canvas.fill();
+
+    canvas.begin_path();
+    canvas.set_fill_style(Color::rgba(0, 0, 255, 255));
+    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f32::consts::PI,  1.0 * std::f32::consts::PI);
+    canvas.fill();
+
+    canvas.begin_path();
+    canvas.set_stroke_style(Color::rgba(0, 0, 0, 255));
+    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f32::consts::PI,  2.0 * std::f32::consts::PI);
+    canvas.stroke();
+
 
     window.image_fast(0, 0, 800, 600, &canvas.data);
 

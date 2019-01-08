@@ -277,6 +277,13 @@ impl Canvas {
         self.path_builder = PathBuilder::new();
     }
 
+
+    /// draw a arc
+    pub fn arc(&mut self, x: f32, y: f32, radius: f32, start_segment: f32, end_segment: f32) {
+        let path_builder = &mut self.path_builder;
+        path_builder.arc(x,y,radius,start_segment,end_segment);
+    }
+
     ///
     pub fn close_path(&mut self) {
         let path_builder = &mut self.path_builder;

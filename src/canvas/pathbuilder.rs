@@ -51,6 +51,35 @@ impl PathBuilder {
         return edges;
     }
 
+    pub fn arc(&mut self, x: f32, y: f32, radius: f32, start_segment: f32, end_segment: f32) {
+        let mut t: f32 = 0.0;
+
+        let start = start_segment;
+        let mut end = end_segment;
+
+        if start > 0.0 && end == 0.0  {
+            end = 2.0 * std::f32::consts::PI;
+        }
+
+        if start != end {
+            let segment_length = end - start;
+            while t < 1.00 {
+                let theta:f32 = start + (segment_length * t);
+                let x_offset:f32 = radius * theta.cos();
+                let y_offset:f32 = radius * theta.sin();
+                self.points.push(Point::new(x+x_offset, y+y_offset));
+                t += 1.0 / (segment_length * 10.0);
+            }
+
+            //last point
+            let theta:f32 = start + (segment_length * 1.0);
+            let x_offset:f32 = radius * theta.cos();
+            let y_offset:f32 = radius * theta.sin();
+            self.points.push(Point::new(x+x_offset, y+y_offset));
+        }
+
+    }
+
     /// move to position
     pub fn move_to(&mut self, x: f32, y: f32) {
         self.points.push(Point::new_with_type(x, y, PointType::Hidden));
