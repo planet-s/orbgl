@@ -3,21 +3,13 @@ use super::super::super::RenderEngine;
 use std::rc::Rc;
 use std::cell::RefCell;
 use orbclient::Color;
+use orbimage::Image;
 
 pub struct Canvas {
     pub render_engine: Rc<RefCell<RenderEngine>>,
 }
 
 impl Canvas {
-    /*
-    pub fn new<T: Surface, A: RenderEngine>(surface: T, render_engine: A) -> Self where T: Surface + 'static, A: RenderEngine + 'static {
-        Self {
-            surface: Rc::new(RefCell::new(surface)),
-            render_engine: Rc::new(RefCell::new(render_engine)),
-        }
-    }
-    */
-
     pub fn new(render_engine: Rc<RefCell<RenderEngine>>) -> Self {
         Self {
             render_engine: render_engine,
@@ -93,8 +85,14 @@ impl Canvas {
     pub fn set_line_width(&mut self, line_width: f64) {
         self.render_engine.borrow_mut().set_line_width(line_width);
     }
-
-    pub fn pixel(&mut self, x: f64, y: f64, color: Color) {
-        self.render_engine.borrow_mut().pixel(x as i32 , y as i32, color);
+    pub fn draw_image(&mut self, image: &mut Image, x: f64, y: f64) {
+        self.render_engine.borrow_mut().draw_image(image, x, y);
     }
+    pub fn draw_image_with_size(&mut self, image: &mut Image, x: f64, y: f64, width: f64, height: f64) {
+        self.render_engine.borrow_mut().draw_image_with_size(image, x, y, width, height);
+    }
+    pub fn draw_image_with_clip_and_size(&mut self, image: &mut Image, clip_x: f64, clip_y: f64, clip_width: f64, clip_height: f64, x: f64, y: f64, width: f64, height: f64) {
+        self.render_engine.borrow_mut().draw_image_with_clip_and_size(image,clip_x, clip_y,clip_width,clip_height,x, y, width, height);
+    }
+
 }

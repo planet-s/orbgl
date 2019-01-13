@@ -6,3 +6,4 @@ authors = ["Michael Hölzl <FlowPX2@gmail.com>"]
 [dependencies]
 orbclient = "*"
 rust-cairo = { git = "https://gitlab.redox-os.org/redox-os/rust-cairo.git" }
+orbimage = "0.1.16"

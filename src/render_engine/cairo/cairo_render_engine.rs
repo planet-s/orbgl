@@ -7,6 +7,8 @@ use std::cell::RefCell;
 use super::super::super::Surface;
 use super::super::super::ImageSurface;
 use super::canvaspaintstate::CanvasPaintState;
+use orbimage::Image;
+use orbclient::Renderer;
 
 pub struct CairoRenderEngine {
     pub surface: Rc<RefCell<Surface>>,
@@ -38,8 +40,7 @@ impl CairoRenderEngine {
             let surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, width as i32, height as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32));
             cr_layer_b = cairo_create(surface);
         }
-        
-        
+
 
         Rc::new(RefCell::new(Self {
             cr_layer_a: cr_layer_a,
@@ -131,19 +132,19 @@ impl RenderEngine for CairoRenderEngine {
 
     fn bezier_curve_to(&mut self, cp1x: f64, cp1y: f64, cp2x: f64, cp2y: f64, x: f64, y: f64) {
         unsafe {
-            cairo_curve_to(self.cr_layer_a,cp1x, cp1y, cp2x, cp2y, x, y)
+            cairo_curve_to(self.cr_layer_a, cp1x, cp1y, cp2x, cp2y, x, y)
         }
     }
 
     fn rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         unsafe {
-            cairo_rectangle(self.cr_layer_a,x,y,width,height);
+            cairo_rectangle(self.cr_layer_a, x, y, width, height);
         }
     }
 
     fn fill_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         unsafe {
-            cairo_rectangle(self.cr_layer_b,x,y,width,height);
+            cairo_rectangle(self.cr_layer_b, x, y, width, height);
             cairo_set_source_rgba(self.cr_layer_b, self.state.fill_style.r() as f64 / 255.0,
                                   self.state.fill_style.g() as f64 / 255.0,
                                   self.state.fill_style.b() as f64 / 255.0,
@@ -154,7 +155,7 @@ impl RenderEngine for CairoRenderEngine {
 
     fn stroke_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         unsafe {
-            cairo_rectangle(self.cr_layer_b,x,y,width,height);
+            cairo_rectangle(self.cr_layer_b, x, y, width, height);
             cairo_set_source_rgba(self.cr_layer_b, self.state.stroke_style.r() as f64 / 255.0,
                                   self.state.stroke_style.g() as f64 / 255.0,
                                   self.state.stroke_style.b() as f64 / 255.0,
@@ -168,7 +169,7 @@ impl RenderEngine for CairoRenderEngine {
         unsafe {
             cairo_save(self.cr_layer_b);
             cairo_set_operator(self.cr_layer_b, CAIRO_OPERATOR_CLEAR);
-            cairo_rectangle(self.cr_layer_b,x,y,width,height);
+            cairo_rectangle(self.cr_layer_b, x, y, width, height);
             cairo_fill(self.cr_layer_b);
             cairo_restore(self.cr_layer_b);
         }
@@ -176,8 +177,8 @@ impl RenderEngine for CairoRenderEngine {
 
     fn scale(&mut self, sx: f64, sy: f64) {
         unsafe {
-            cairo_scale(self.cr_layer_a, sx,sy);
-            cairo_scale(self.cr_layer_b, sx,sy);
+            cairo_scale(self.cr_layer_a, sx, sy);
+            cairo_scale(self.cr_layer_b, sx, sy);
         }
     }
 
@@ -190,14 +191,14 @@ impl RenderEngine for CairoRenderEngine {
 
     fn translate(&mut self, tx: f64, ty: f64) {
         unsafe {
-            cairo_translate(self.cr_layer_a, tx,ty);
-            cairo_translate(self.cr_layer_b, tx,ty);
+            cairo_translate(self.cr_layer_a, tx, ty);
+            cairo_translate(self.cr_layer_b, tx, ty);
         }
     }
 
     fn transform(&mut self, a: f64, b: f64, c: f64, d: f64, e: f64, f: f64) {
         unsafe {
-             let matrix = cairo_matrix_t {
+            let matrix = cairo_matrix_t {
                 xx: a,
                 yx: b,
                 xy: c,
@@ -239,4 +240,62 @@ impl RenderEngine for CairoRenderEngine {
             self.state.line_width = line_width;
         }
     }
+
+    fn draw_image(&mut self, image: &mut Image, x: f64, y: f64) {
+        let width = image.width() as i32;
+        let height = image.height() as i32;
+
+        unsafe {
+            let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
+            let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, width as i32, height as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32));
+            cairo_save(self.cr_layer_a);
+            cairo_translate(self.cr_layer_a, x, y);
+            cairo_set_source_surface(self.cr_layer_a, image_surface, 0.0, 0.0);
+            cairo_paint(self.cr_layer_a);
+            cairo_restore(self.cr_layer_a);
+        }
+    }
+
+    fn draw_image_with_size(&mut self, image: &mut Image, x: f64, y: f64, width: f64, height: f64) {
+        let w = image.width() as i32;
+        let h = image.height() as i32;
+        let sx = width / image.width() as f64;
+        let sy = height / image.height() as f64;
+
+
+        unsafe {
+            let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
+            let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, w as i32, h as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, w as i32));
+            cairo_save(self.cr_layer_a);
+            cairo_translate(self.cr_layer_a, x, y);
+            cairo_scale(self.cr_layer_a, sx, sy);
+            cairo_set_source_surface(self.cr_layer_a, image_surface, 0.0, 0.0);
+            cairo_paint(self.cr_layer_a);
+            cairo_restore(self.cr_layer_a);
+        }
+    }
+
+    fn draw_image_with_clip_and_size(&mut self, image: &mut Image, clip_x: f64, clip_y: f64, clip_width: f64, clip_height: f64, x: f64, y: f64, width: f64, height: f64) {
+        /*
+        let w = image.width() as i32;
+        let h = image.height() as i32;
+        let sx = clip_width / image.width() as f64;
+        let sy = clip_height / image.height() as f64;
+
+
+        unsafe {
+            let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
+            let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, w as i32, h as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, w as i32));
+            cairo_save(self.cr_layer_a);
+            cairo_translate(self.cr_layer_a, x, y);
+            cairo_rectangle(self.cr_layer_a,0.0,0.0,width, height);
+            cairo_scale(self.cr_layer_a, sx, sy);
+            cairo_clip(self.cr_layer_a);
+            cairo_set_source_surface(self.cr_layer_a, image_surface, -clip_x, -clip_y);
+            cairo_paint(self.cr_layer_a);
+            cairo_restore(self.cr_layer_a);
+        }
+        */
+    }
+
 }

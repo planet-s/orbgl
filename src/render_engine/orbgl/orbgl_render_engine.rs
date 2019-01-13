@@ -10,6 +10,7 @@ use super::pathbuilder::PathBuilder;
 use super::edge::Edge;
 use super::edge::EdgeType;
 use super::canvaspaintstate::CanvasPaintState;
+use orbimage::Image;
 
 pub struct OrbGLRenderEngine {
     pub surface: Rc<RefCell<Surface>>,
@@ -156,7 +157,6 @@ impl OrbGLRenderEngine {
 }
 
 impl RenderEngine for OrbGLRenderEngine {
-    fn set_surface(&mut self, surface: Rc<RefCell<Surface>>) {}
 
     fn save(&mut self) {
         self.saved_states.push(self.state);

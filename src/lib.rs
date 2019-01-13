@@ -3,6 +3,7 @@
 
 extern crate core;
 extern crate orbclient;
+extern crate orbimage;
 extern crate rust_cairo;
 
 pub use orbclient::Color;

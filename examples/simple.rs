@@ -1,8 +1,9 @@
 #![allow(dead_code)]
 extern crate orbclient;
 extern crate orbgl;
+extern crate orbimage;
 
-
+use orbimage::Image;
 use orbclient::{Color, Window, Renderer, EventOption};
 use orbgl::surface::ImageSurface;
 use orbgl::surface::FramebufferSurface;
@@ -114,7 +115,10 @@ fn main() {
     canvas.arc(200.0, 200.0, 50.0,0.0 * std::f64::consts::PI,  2.0 * std::f64::consts::PI);
     canvas.stroke();
 
-
+    let mut image = Image::from_path("assets/test.png").unwrap();
+    //canvas.draw_image(&mut image, 0.0, 0.0);
+    canvas.draw_image_with_size(&mut image, 0.0, 0.0, 256.0, 256.0);
+    //canvas.draw_image_with_clip_and_size(&mut image,50.0, 0.0, 100.0, 100.0, 10.0, 10.0, 120.0, 120.0);
     //window.image_fast(0, 0, 800, 600, surface.borrow_mut().get_image_data());
 
 
