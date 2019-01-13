@@ -1,40 +1,60 @@
+use super::super::RenderEngine;
 use orbclient::Color;
-use point::Point;
-use pathbuilder::PathBuilder;
-use edge::Edge;
-use edge::EdgeType;
-use canvaspaintstate::CanvasPaintState;
+use std::rc::Rc;
+use std::cell::RefCell;
+use super::super::super::Surface;
+use super::super::super::ImageSurface;
 
+use super::point::Point;
+use super::pathbuilder::PathBuilder;
+use super::edge::Edge;
+use super::edge::EdgeType;
+use super::canvaspaintstate::CanvasPaintState;
 
-#[allow(unused)]
-pub struct Canvas {
-    pub width: f32,
-    pub height: f32,
-    pub data: Vec<Color>,
+pub struct OrbGLRenderEngine {
+    pub surface: Rc<RefCell<Surface>>,
     path_builder: PathBuilder,
     state: CanvasPaintState,
     saved_states: Vec<CanvasPaintState>,
 }
 
-impl Canvas {
-    pub fn new(width: f32, height: f32) -> Self {
-        let size: u64 = (width * height) as u64;
 
-
-        Canvas {
-            width: width,
-            height: height,
-            data: vec![Color::rgba(0, 0, 0, 0); size as usize],
+impl OrbGLRenderEngine {
+    pub fn new(surface: Rc<RefCell<Surface>>) -> Rc<RefCell<Self>> {
+        Rc::new(RefCell::new(Self {
+            surface: surface,
             path_builder: PathBuilder::new(),
             state: CanvasPaintState::new(),
             saved_states: vec![],
-        }
+        }))
     }
 
+    fn scanline(&mut self, y: f64) -> Vec<f64> {
+        let mut cross_points: Vec<f64> = Vec::new();
+
+        let mut edges: Vec<Edge>;
+        edges = self.path_builder.build();
+
+
+        for edge in edges {
+            let start_point = self.state.transform.apply_to_point(edge.start);
+            let end_point = self.state.transform.apply_to_point(edge.end);
+            let t: f64 = (((end_point.x - start_point.x) * (y as f64 - start_point.y)) / (end_point.y - start_point.y)) + start_point.x;
+            if (start_point.y > y as f64) != (end_point.y > y as f64) {
+                cross_points.push(t as f64);
+            }
+        }
+
+        cross_points.sort_by(|a, b| a.partial_cmp(&b).unwrap());
+        cross_points
+    }
+
+
     fn pixel(&mut self, x: i32, y: i32, color: Color) {
-        let w = self.width as i32;
-        let h = self.height as i32;
-        let data = &mut self.data;
+        let mut surface = self.surface.borrow_mut();
+        let w = surface.width() as i32;
+        let h = surface.height() as i32;
+        let data = surface.data_mut();
 
         if x >= 0 && y >= 0 && x < w as i32 && y < h as i32 {
             let new = color.data;
@@ -87,7 +107,7 @@ impl Canvas {
 
     /// antialiased pixel
     #[allow(unused)]
-    fn aa_pixel(&mut self, x: f32, y: f32, color: Color) {
+    fn aa_pixel(&mut self, x: f64, y: f64, color: Color) {
         let r = color.r();
         let g = color.g();
         let b = color.b();
@@ -95,32 +115,32 @@ impl Canvas {
 
         let int_x = x as i32;
         let int_y = y as i32;
-        let frac_x = x - int_x as f32;
-        let frac_y = y - int_y as f32;
+        let frac_x = x - int_x as f64;
+        let frac_y = y - int_y as f64;
 
         let _a = (1.0 - frac_x) * (1.0 - frac_y);
         let _b = frac_x * (1.0 - frac_y);
         let _c = (1.0 - frac_x) * frac_y;
         let _d = frac_x * frac_y;
 
-        self.pixel(int_x, int_y, Color::rgba(r, g, b, (a as f32 * _a) as u8));
+        self.pixel(int_x, int_y, Color::rgba(r, g, b, (a as f64 * _a) as u8));
 
-        self.pixel(int_x + 1, int_y, Color::rgba(r, g, b, (a as f32 * _b) as u8));
-        self.pixel(int_x, int_y + 1, Color::rgba(r, g, b, (a as f32 * _c) as u8));
-        self.pixel(int_x + 1, int_y + 1, Color::rgba(r, g, b, (a as f32 * _d) as u8));
+        self.pixel(int_x + 1, int_y, Color::rgba(r, g, b, (a as f64 * _b) as u8));
+        self.pixel(int_x, int_y + 1, Color::rgba(r, g, b, (a as f64 * _c) as u8));
+        self.pixel(int_x + 1, int_y + 1, Color::rgba(r, g, b, (a as f64 * _d) as u8));
     }
 
 
     /// antialiased line
     #[allow(unused)]
-    fn aa_line(&mut self, x0: f32, y0: f32, x1: f32, y1: f32, color: Color) {
-        let mut x0 = x0 as f32;
-        let mut y0 = y0 as f32;
-        let mut x1 = x1 as f32;
-        let mut y1 = y1 as f32;
+    fn aa_line(&mut self, x0: f64, y0: f64, x1: f64, y1: f64, color: Color) {
+        let mut x0 = x0 as f64;
+        let mut y0 = y0 as f64;
+        let mut x1 = x1 as f64;
+        let mut y1 = y1 as f64;
 
-        let dx = (x1 - x0) as f32;
-        let dy = (y1 - y0) as f32;
+        let dx = (x1 - x0) as f64;
+        let dy = (y1 - y0) as f64;
 
         let length = (dx * dx + dy * dy).sqrt();
 
@@ -128,53 +148,27 @@ impl Canvas {
         let step_y = dy / length;
 
         for i in 0..((length as i32) + 1) {
-            let x = (x0 + ((i as f32) * step_x));
-            let y = (y0 + ((i as f32) * step_y));
-            self.aa_pixel(x as f32, y as f32, color);
+            let x = (x0 + ((i as f64) * step_x));
+            let y = (y0 + ((i as f64) * step_y));
+            self.aa_pixel(x as f64, y as f64, color);
         }
     }
 }
 
+impl RenderEngine for OrbGLRenderEngine {
+    fn set_surface(&mut self, surface: Rc<RefCell<Surface>>) {}
 
-/// Common
-#[allow(unused)]
-impl Canvas {
-    pub fn save(&mut self) {
+    fn save(&mut self) {
         self.saved_states.push(self.state);
     }
 
-    pub fn restore(&mut self) {
+    fn restore(&mut self) {
         if self.saved_states.len() > 0 {
             self.state = self.saved_states.pop().unwrap();
         }
     }
-}
 
-//Paths
-#[allow(unused)]
-impl Canvas {
-    pub fn scanline(&mut self, y: f32) -> Vec<f32> {
-        let mut cross_points: Vec<f32> = Vec::new();
-
-        let mut edges: Vec<Edge>;
-        edges = self.path_builder.build();
-
-
-        for edge in edges {
-            let start_point = self.state.transform.apply_to_point(edge.start);
-            let end_point = self.state.transform.apply_to_point(edge.end);
-            let t: f32 = (((end_point.x - start_point.x) * (y as f32 - start_point.y)) / (end_point.y - start_point.y)) + start_point.x;
-            if (start_point.y > y as f32) != (end_point.y > y as f32) {
-                cross_points.push(t as f32);
-            }
-        }
-
-        cross_points.sort_by(|a, b| a.partial_cmp(&b).unwrap());
-        cross_points
-    }
-
-
-    pub fn fill(&mut self) {
+    fn fill(&mut self) {
         let color: Color;
 
         let mut edges: Vec<Edge>;
@@ -182,8 +176,13 @@ impl Canvas {
         color = self.state.fill_style;
         edges = self.path_builder.build();
 
-        let mut min_y = self.height;
+        let mut min_y = 0.0;
         let mut max_y = 0.0;
+        {
+            let mut surface = self.surface.borrow_mut();
+            min_y = surface.height() as f64;
+        }
+
         for edge in &edges {
             let start_point = self.state.transform.apply_to_point(edge.start);
             let end_point = self.state.transform.apply_to_point(edge.end);
@@ -206,10 +205,8 @@ impl Canvas {
             //self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
         }
 
-
-
         for y in min_y as i32..max_y as i32 {
-            let mut lines = self.scanline(y as f32);
+            let mut lines = self.scanline(y as f64);
 
 
             let mut j: i32 = 0;
@@ -235,11 +232,11 @@ impl Canvas {
         }
     }
 
-    pub fn stroke(&mut self) {
+    fn stroke(&mut self) {
         let mut x: i32 = 0;
         let mut y: i32 = 0;
 
-        let line_width: f32;
+        let line_width: f64;
         let color: Color;
         let mut edges: Vec<Edge>;
 
@@ -257,10 +254,10 @@ impl Canvas {
                     //ToDo: line width
                     let mut new_color = Color::rgba(color.r(), color.g(), color.b(), color.a());
                     if line_width < 1.0 {
-                        let new_r = color.r() as f32 * line_width;
-                        let new_g = color.g() as f32 * line_width;
-                        let new_b = color.b() as f32 * line_width;
-                        let new_a = color.a() as f32 * line_width;
+                        let new_r = color.r() as f64 * line_width;
+                        let new_g = color.g() as f64 * line_width;
+                        let new_b = color.b() as f64 * line_width;
+                        let new_a = color.a() as f64 * line_width;
 
                         new_color = Color::rgba(new_r as u8, new_g as u8, new_b as u8, new_a as u8);
                     }
@@ -272,51 +269,44 @@ impl Canvas {
         }
     }
 
-    ///
-    pub fn begin_path(&mut self) {
+    fn begin_path(&mut self) {
         self.path_builder = PathBuilder::new();
     }
 
 
-    /// draw a arc
-    pub fn arc(&mut self, x: f32, y: f32, radius: f32, start_segment: f32, end_segment: f32) {
+    fn arc(&mut self, x: f64, y: f64, radius: f64, start_segment: f64, end_segment: f64) {
         let path_builder = &mut self.path_builder;
         path_builder.arc(x,y,radius,start_segment,end_segment);
     }
 
-    ///
-    pub fn close_path(&mut self) {
+    fn close_path(&mut self) {
         let path_builder = &mut self.path_builder;
         path_builder.close_path();
     }
 
-    /// move to position
-    pub fn move_to(&mut self, x: f32, y: f32) {
-        let p = Point::new(x as f32, y as f32);
+    fn move_to(&mut self, x: f64, y: f64) {
+        let p = Point::new(x as f64, y as f64);
         let path_builder = &mut self.path_builder;
         path_builder.move_to(x, y);
     }
 
-    /// create a line between the last and new point
-    pub fn line_to(&mut self, x: f32, y: f32) {
-        let p = Point::new(x as f32, y as f32);
+    fn line_to(&mut self, x: f64, y: f64) {
+        let p = Point::new(x as f64, y as f64);
         let path_builder = &mut self.path_builder;
         path_builder.line_to(x, y);
     }
 
-    /// quadratic bezier curve
-    pub fn quadratic_curve_to(&mut self, cpx: f32, cpy: f32, x: f32, y: f32) {
+    fn quadratic_curve_to(&mut self, cpx: f64, cpy: f64, x: f64, y: f64) {
         let path_builder = &mut self.path_builder;
         path_builder.quadratic_curve_to(cpx, cpy, x, y);
     }
 
-    /// cubic bezier curve
-    pub fn bezier_curve_to(&mut self, cp1x: f32, cp1y: f32, cp2x: f32, cp2y: f32, x: f32, y: f32) {
+    fn bezier_curve_to(&mut self, cp1x: f64, cp1y: f64, cp2x: f64, cp2y: f64, x: f64, y: f64) {
         let path_builder = &mut self.path_builder;
         path_builder.bezier_curve_to(cp1x, cp1y, cp2x, cp2y, x, y);
     }
 
-    pub fn rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+    fn rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         let path_builder = &mut self.path_builder;
         path_builder.move_to(x, y);
         path_builder.line_to((x + width), y);
@@ -325,7 +315,7 @@ impl Canvas {
         path_builder.line_to(x, y);
     }
 
-    pub fn fill_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+    fn fill_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         let tmp: PathBuilder = self.path_builder.clone();
         self.path_builder = PathBuilder::new();
         self.rect(x, y, width, height);
@@ -333,7 +323,7 @@ impl Canvas {
         self.path_builder = tmp;
     }
 
-    pub fn stroke_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+    fn stroke_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         let tmp: PathBuilder = self.path_builder.clone();
         self.path_builder = PathBuilder::new();
         self.rect(x, y, width, height);
@@ -341,7 +331,7 @@ impl Canvas {
         self.path_builder = tmp;
     }
 
-    pub fn clear_rect(&mut self, x: f32, y: f32, width: f32, height: f32) {
+    fn clear_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         let tmp: PathBuilder = self.path_builder.clone();
         self.save();
         self.state.override_color = true;
@@ -352,50 +342,36 @@ impl Canvas {
         self.restore();
         self.path_builder = tmp;
     }
-}
 
-
-/// Transformations
-#[allow(unused)]
-impl Canvas {
-    /// Scales the current drawing bigger or smaller
-    pub fn scale(&mut self, sx: f32, sy: f32) {
+    fn scale(&mut self, sx: f64, sy: f64) {
         self.state.transform.scale(sx, sy);
     }
 
-    /// Rotates the current drawing
-    pub fn rotate(&mut self, angle: f32) {
+    fn rotate(&mut self, angle: f64) {
         self.state.transform.rotate(angle);
     }
 
-    /// Remaps the (0,0) position on the canvas
-    pub fn translate(&mut self, tx: f32, ty: f32) {
+    fn translate(&mut self, tx: f64, ty: f64) {
         self.state.transform.translate(tx, ty);
     }
 
-    /// Replaces the current transformation matrix for the drawing
-    pub fn transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
+    fn transform(&mut self, a: f64, b: f64, c: f64, d: f64, e: f64, f: f64) {
         self.state.transform.transform(a, b, c, d, e, f);
     }
 
-    /// Resets the current transform to the identity matrix. Then runs transform()
-    pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
+    fn set_transform(&mut self, a: f64, b: f64, c: f64, d: f64, e: f64, f: f64) {
         self.state.transform.set_transform(a, b, c, d, e, f);
     }
-}
 
-/// Styles
-#[allow(unused)]
-impl Canvas {
-    pub fn set_fill_style(&mut self, color: Color) {
+    fn set_fill_style(&mut self, color: Color) {
         self.state.fill_style = color;
     }
 
-    pub fn set_stroke_style(&mut self, color: Color) {
+    fn set_stroke_style(&mut self, color: Color) {
         self.state.stroke_style = color;
     }
 
-    pub fn set_line_width(&mut self, line_width: f32) {
+    fn set_line_width(&mut self, line_width: f64) {
         self.state.line_width = line_width;
     }
 }

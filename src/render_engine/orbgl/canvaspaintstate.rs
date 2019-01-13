@@ -1,11 +1,11 @@
 use orbclient::Color;
-use matrix::Matrix;
+use super::matrix::Matrix;
 
 #[derive(Copy, Clone)]
 pub struct CanvasPaintState {
     pub fill_style: Color,
     pub stroke_style: Color,
-    pub line_width: f32,
+    pub line_width: f64,
     pub transform: Matrix,
     pub override_color: bool,
 }

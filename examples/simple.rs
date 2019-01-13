@@ -4,8 +4,11 @@ extern crate orbgl;
 
 
 use orbclient::{Color, Window, Renderer, EventOption};
-use orbgl::Canvas;
-
+use orbgl::surface::ImageSurface;
+use orbgl::surface::FramebufferSurface;
+use orbgl::api::Canvas;
+use orbgl::render_engine::OrbGLRenderEngine;
+use orbgl::render_engine::CairoRenderEngine;
 
 fn main() {
     let w = 800;
@@ -20,7 +23,10 @@ fn main() {
     window.rect(0, 0, win_w, win_h, Color::rgb(255, 255, 255));
 
     //Init a new canvas
-    let mut canvas = Canvas::new(800.0, 600.0);
+    //let surface = ImageSurface::new(800, 600);
+    let surface = FramebufferSurface::new(800, 600, window.data_mut().as_mut_ptr() as *mut u8);
+    let render_engine = CairoRenderEngine::new(surface.clone()); //OrbGLRenderEngine::new(surface.clone()); //CairoRenderEngine::new(surface.clone());
+    let mut canvas = Canvas::new(render_engine.clone());
 
     //Transform the canvas
     canvas.transform(2.83, -2.83, 2.83, 2.83, 150.0, 300.0);
@@ -95,21 +101,22 @@ fn main() {
 
     canvas.begin_path();
     canvas.set_fill_style(Color::rgba(255, 0, 0, 255));
-    canvas.arc(200.0, 200.0, 50.0,1.0 * std::f32::consts::PI,  2.0 * std::f32::consts::PI);
+    canvas.arc(200.0, 200.0, 50.0,1.0 * std::f64::consts::PI,  2.0 * std::f64::consts::PI);
     canvas.fill();
 
     canvas.begin_path();
     canvas.set_fill_style(Color::rgba(0, 0, 255, 255));
-    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f32::consts::PI,  1.0 * std::f32::consts::PI);
+    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f64::consts::PI,  1.0 * std::f64::consts::PI);
     canvas.fill();
 
     canvas.begin_path();
     canvas.set_stroke_style(Color::rgba(0, 0, 0, 255));
-    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f32::consts::PI,  2.0 * std::f32::consts::PI);
+    canvas.arc(200.0, 200.0, 50.0,0.0 * std::f64::consts::PI,  2.0 * std::f64::consts::PI);
     canvas.stroke();
 
 
-    window.image_fast(0, 0, 800, 600, &canvas.data);
+    //window.image_fast(0, 0, 800, 600, surface.borrow_mut().get_image_data());
+
 
 
     window.sync();

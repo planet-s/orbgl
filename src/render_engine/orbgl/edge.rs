@@ -1,4 +1,4 @@
-use point::Point;
+use super::point::Point;
 
 #[derive(Copy, Clone)]
 pub enum EdgeType {

@@ -1,13 +1,13 @@
-use point::Point;
+use super::point::Point;
 
 #[derive(Copy, Clone)]
 pub struct Matrix {
-    pub a: f32,
-    pub b: f32,
-    pub c: f32,
-    pub d: f32,
-    pub e: f32,
-    pub f: f32,
+    pub a: f64,
+    pub b: f64,
+    pub c: f64,
+    pub d: f64,
+    pub e: f64,
+    pub f: f64,
 }
 
 impl Matrix {
@@ -22,21 +22,21 @@ impl Matrix {
         }
     }
 
-    pub fn scale(&mut self, sx: f32, sy: f32) {
+    pub fn scale(&mut self, sx: f64, sy: f64) {
         self.transform(sx, 0.0, 0.0, sy, 0.0, 0.0);
     }
 
-    pub fn translate(&mut self, tx: f32, ty: f32) {
+    pub fn translate(&mut self, tx: f64, ty: f64) {
         self.transform(1.0, 0.0, 0.0, 1.0, tx, ty);
     }
 
-    pub fn rotate(&mut self, angle: f32) {
+    pub fn rotate(&mut self, angle: f64) {
         let cos = angle.cos();
         let sin = angle.sin();
         self.transform(cos, sin, -sin, cos, 0.0, 0.0);
     }
 
-    pub fn set_transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
+    pub fn set_transform(&mut self, a: f64, b: f64, c: f64, d: f64, e: f64, f: f64) {
         self.a = a;
         self.b = b;
         self.c = c;
@@ -46,7 +46,7 @@ impl Matrix {
     }
 
 
-    pub fn transform(&mut self, a: f32, b: f32, c: f32, d: f32, e: f32, f: f32) {
+    pub fn transform(&mut self, a: f64, b: f64, c: f64, d: f64, e: f64, f: f64) {
         let org_a = self.a;
         let org_b = self.b;
         let org_c = self.c;

@@ -6,13 +6,13 @@ pub enum PointType {
 
 #[derive(Copy, Clone)]
 pub struct Point {
-    pub x: f32,
-    pub y: f32,
+    pub x: f64,
+    pub y: f64,
     pub point_type: PointType,
 }
 
 impl Point {
-    pub fn new(x: f32, y: f32) -> Self {
+    pub fn new(x: f64, y: f64) -> Self {
         Point {
             x: x,
             y: y,
@@ -20,7 +20,7 @@ impl Point {
         }
     }
 
-    pub fn new_with_type(x: f32, y: f32, point_type: PointType) -> Self {
+    pub fn new_with_type(x: f64, y: f64, point_type: PointType) -> Self {
         Point {
             x: x,
             y: y,
@@ -28,15 +28,15 @@ impl Point {
         }
     }
 
-    pub fn abs2(&self) -> f32 {
+    pub fn abs2(&self) -> f64 {
         self.x.powi(2) + self.y.powi(2)
     }
 
-    pub fn abs(&self) -> f32 {
+    pub fn abs(&self) -> f64 {
         self.abs2().sqrt()
     }
 
-    pub fn arg(&self) -> f32 {
+    pub fn arg(&self) -> f64 {
         self.y.atan2(self.x)
     }
 
@@ -44,7 +44,7 @@ impl Point {
         Point { x: b.x - a.x, y: b.y - a.y, point_type: PointType::Visible }
     }
 
-    pub fn cross_product(a: &Point, b: &Point) -> f32 {
+    pub fn cross_product(a: &Point, b: &Point) -> f64 {
         a.x * b.y - a.y * b.x
     }
 }

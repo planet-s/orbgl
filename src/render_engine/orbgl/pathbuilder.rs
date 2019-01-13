@@ -1,7 +1,7 @@
-use edge::Edge;
-use edge::EdgeType;
-use point::Point;
-use point::PointType;
+use super::edge::Edge;
+use super::edge::EdgeType;
+use super::point::Point;
+use super::point::PointType;
 
 /// graphic path with similar functions like html canvas
 #[derive(Clone)]
@@ -51,42 +51,41 @@ impl PathBuilder {
         return edges;
     }
 
-    pub fn arc(&mut self, x: f32, y: f32, radius: f32, start_segment: f32, end_segment: f32) {
-        let mut t: f32 = 0.0;
+    pub fn arc(&mut self, x: f64, y: f64, radius: f64, start_segment: f64, end_segment: f64) {
+        let mut t: f64 = 0.0;
 
         let start = start_segment;
         let mut end = end_segment;
 
-        if start > 0.0 && end == 0.0  {
-            end = 2.0 * std::f32::consts::PI;
+        if start > 0.0 && end == 0.0 {
+            end = 2.0 * std::f64::consts::PI;
         }
 
         if start != end {
             let segment_length = end - start;
             while t < 1.00 {
-                let theta:f32 = start + (segment_length * t);
-                let x_offset:f32 = radius * theta.cos();
-                let y_offset:f32 = radius * theta.sin();
-                self.points.push(Point::new(x+x_offset, y+y_offset));
+                let theta: f64 = start + (segment_length * t);
+                let x_offset: f64 = radius * theta.cos();
+                let y_offset: f64 = radius * theta.sin();
+                self.points.push(Point::new(x + x_offset, y + y_offset));
                 t += 1.0 / (segment_length * 10.0);
             }
 
             //last point
-            let theta:f32 = start + (segment_length * 1.0);
-            let x_offset:f32 = radius * theta.cos();
-            let y_offset:f32 = radius * theta.sin();
-            self.points.push(Point::new(x+x_offset, y+y_offset));
+            let theta: f64 = start + (segment_length * 1.0);
+            let x_offset: f64 = radius * theta.cos();
+            let y_offset: f64 = radius * theta.sin();
+            self.points.push(Point::new(x + x_offset, y + y_offset));
         }
-
     }
 
     /// move to position
-    pub fn move_to(&mut self, x: f32, y: f32) {
+    pub fn move_to(&mut self, x: f64, y: f64) {
         self.points.push(Point::new_with_type(x, y, PointType::Hidden));
     }
 
     /// create a line between the last and new point
-    pub fn line_to(&mut self, x: f32, y: f32) {
+    pub fn line_to(&mut self, x: f64, y: f64) {
         self.points.push(Point::new(x, y));
     }
 
@@ -107,13 +106,13 @@ impl PathBuilder {
 
 
     /// quadratic bezier curve
-    pub fn quadratic_curve_to(&mut self, argx1: f32, argy1: f32, argx2: f32, argy2: f32) {
-        let mut t: f32 = 0.0;
-        let mut u: f32;
-        let mut tt: f32;
-        let mut uu: f32;
-        let mut x: f32;
-        let mut y: f32;
+    pub fn quadratic_curve_to(&mut self, argx1: f64, argy1: f64, argx2: f64, argy2: f64) {
+        let mut t: f64 = 0.0;
+        let mut u: f64;
+        let mut tt: f64;
+        let mut uu: f64;
+        let mut x: f64;
+        let mut y: f64;
 
         let tmp_point = self.points[self.points.len() - 1];
         while t < 1.0 {
@@ -139,15 +138,15 @@ impl PathBuilder {
     }
 
     /// cubic bezier curve
-    pub fn bezier_curve_to(&mut self, argx1: f32, argy1: f32, argx2: f32, argy2: f32, argx3: f32, argy3: f32) {
-        let mut t: f32 = 0.0;
-        let mut u: f32;
-        let mut tt: f32;
-        let mut uu: f32;
-        let mut uuu: f32;
-        let mut ttt: f32;
-        let mut x: f32;
-        let mut y: f32;
+    pub fn bezier_curve_to(&mut self, argx1: f64, argy1: f64, argx2: f64, argy2: f64, argx3: f64, argy3: f64) {
+        let mut t: f64 = 0.0;
+        let mut u: f64;
+        let mut tt: f64;
+        let mut uu: f64;
+        let mut uuu: f64;
+        let mut ttt: f64;
+        let mut x: f64;
+        let mut y: f64;
 
         let tmp_point = self.points[self.points.len() - 1];
         while t < 1.0 {
@@ -157,17 +156,17 @@ impl PathBuilder {
             uuu = uu * u;
             ttt = tt * t;
 
-            x = tmp_point.x as f32 * uuu;
-            y = tmp_point.y as f32 * uuu;
+            x = tmp_point.x as f64 * uuu;
+            y = tmp_point.y as f64 * uuu;
 
-            x += 3.0 * uu * t * argx1 as f32;
-            y += 3.0 * uu * t * argy1 as f32;
+            x += 3.0 * uu * t * argx1 as f64;
+            y += 3.0 * uu * t * argy1 as f64;
 
-            x += 3.0 * u * tt * argx2 as f32;
-            y += 3.0 * u * tt * argy2 as f32;
+            x += 3.0 * u * tt * argx2 as f64;
+            y += 3.0 * u * tt * argy2 as f64;
 
-            x += ttt * argx3 as f32;
-            y += ttt * argy3 as f32;
+            x += ttt * argx3 as f64;
+            y += ttt * argy3 as f64;
 
             t += 0.1;
 

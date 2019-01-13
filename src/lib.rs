@@ -3,9 +3,23 @@
 
 extern crate core;
 extern crate orbclient;
+extern crate rust_cairo;
 
 pub use orbclient::Color;
 
+
+
+pub use api::*;
+pub mod api;
+
+pub use render_engine::*;
+pub mod render_engine;
+
+pub use surface::*;
+pub mod surface;
+
+
+/*
 /// Canvas components
 pub use point::Point;
 pub use edge::Edge;
@@ -27,4 +41,4 @@ pub mod matrix;
 pub mod canvas;
 #[path = "canvas/canvaspaintstate.rs"]
 pub mod canvaspaintstate;
-
+*/
