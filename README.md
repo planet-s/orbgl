@@ -21,7 +21,7 @@ The Orbital Graphics Library is a library for rendering 2D and 3D graphics. Comp
 ### Goal
 The first goal is to be compatible with HTML Canvas.
 
-## Running the examples Examples
+## Running the examples
 
 You find the examples in the `examples/` directory.
 
