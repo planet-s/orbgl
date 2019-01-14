@@ -1,6 +1,7 @@
 # orbgl
 The Orbital Graphics Library is a library for rendering 2D and 3D graphics. Compatible with Redox and SDL2.
 
+[![Build status](https://gitlab.redox-os.org/redox-os/orbgl/badges/master/build.svg)](https://gitlab.redox-os.org/redox-os/orbgl/pipelines)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ### Troubleshooting
