@@ -1,8 +1,6 @@
-use orbclient::Color;
+use crate::api::{Color, Image};
 use std::rc::Rc;
 use std::cell::RefCell;
-use super::super::Surface;
-use orbimage::Image;
 
 pub trait RenderEngine {
     fn save(&mut self) { println!("RenderEngine: 'save' is not implemented."); }
@@ -28,6 +26,8 @@ pub trait RenderEngine {
     fn set_fill_style(&mut self, color: Color) { println!("RenderEngine: 'set_fill_style' is not implemented."); }
     fn set_stroke_style(&mut self, color: Color) { println!("RenderEngine: 'set_stroke_style' is not implemented."); }
     fn set_line_width(&mut self, line_width: f64) { println!("RenderEngine: 'set_line_width' is not implemented."); }
+
+    
     fn draw_image(&mut self, image: &mut Image, x: f64, y: f64) { println!("RenderEngine: 'draw_image' is not implemented.") }
     fn draw_image_with_size(&mut self, image: &mut Image, x: f64, y: f64, width: f64, height: f64) { println!("RenderEngine: 'draw_image_with_size' is not implemented.") }
     fn draw_image_with_clip_and_size(&mut self, image: &mut Image, clip_x: f64, clip_y: f64, clip_width: f64, clip_height: f64, x: f64, y: f64, width: f64, height: f64) { println!("RenderEngine: 'draw_image_with_size' is not implemented.") }

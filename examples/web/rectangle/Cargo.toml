@@ -1,0 +1,8 @@
+[package]
+name = "rectangle"
+version = "0.1.0"
+authors = ["Florian Blasius"]
+
+[dependencies]
+stdweb = "0.4.13"
+orbgl = { path = "../../.." }

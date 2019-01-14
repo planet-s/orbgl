@@ -1,9 +1,8 @@
-use super::super::super::Surface;
 use super::super::super::RenderEngine;
 use std::rc::Rc;
 use std::cell::RefCell;
-use orbclient::Color;
-use orbimage::Image;
+use crate::api::{Color, Image};
+
 
 pub struct Canvas {
     pub render_engine: Rc<RefCell<RenderEngine>>,

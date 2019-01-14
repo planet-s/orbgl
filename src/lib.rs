@@ -2,13 +2,20 @@
 #![crate_type = "lib"]
 
 extern crate core;
+
+#[cfg(not(target_arch = "wasm32"))]
 extern crate orbclient;
+
+#[cfg(not(target_arch = "wasm32"))]
 extern crate orbimage;
+
+#[cfg(not(target_arch = "wasm32"))]
 extern crate rust_cairo;
 
-pub use orbclient::Color;
+#[cfg(target_arch = "wasm32")]
+extern crate stdweb;
 
-
+pub use crate::api::Color;
 
 pub use api::*;
 pub mod api;
@@ -16,9 +23,11 @@ pub mod api;
 pub use render_engine::*;
 pub mod render_engine;
 
+#[cfg(not(target_arch = "wasm32"))]
 pub use surface::*;
-pub mod surface;
 
+#[cfg(not(target_arch = "wasm32"))]
+pub mod surface;
 
 /*
 /// Canvas components

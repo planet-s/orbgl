@@ -1,4 +1,4 @@
-use orbclient::Color;
+use crate::api::Color;
 
 #[derive(Copy, Clone)]
 pub struct CanvasPaintState {

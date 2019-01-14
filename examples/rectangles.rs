@@ -2,13 +2,14 @@
 extern crate orbclient;
 extern crate orbgl;
 
+use orbclient::{Window, Renderer, EventOption};
 
-use orbclient::{Color, Window, Renderer, EventOption};
-use orbgl::surface::ImageSurface;
-use orbgl::surface::FramebufferSurface;
-use orbgl::api::Canvas;
-use orbgl::render_engine::OrbGLRenderEngine;
-use orbgl::render_engine::CairoRenderEngine;
+
+use orbgl::{
+    surface::{ImageSurface, FramebufferSurface},
+    api::{Canvas, Color},
+    render_engine::{OrbGLRenderEngine, CairoRenderEngine}
+};
 
 
 fn main() {
