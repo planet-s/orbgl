@@ -25,7 +25,7 @@ build:web:
   before_script:
     - cargo install --force cargo-web
   script:
-    - cargo web build
+    - cargo web build -p orbgl
   cache:
     paths:
       - cargo/

@@ -1,0 +1,11 @@
+[package]
+name = "orbgl_shapes"
+version = "0.1.0"
+authors = [
+    "Florian Blasius <florian.blasius@ergosign.de>", 
+    "Michael Hölzl <FlowPX2@gmail.com>"
+]
+edition = "2018"
+
+[dependencies]
+orbgl = { path = "../orbgl" }
