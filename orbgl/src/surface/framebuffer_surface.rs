@@ -1,8 +1,9 @@
-use super::surface::*;
-use crate::api::Color;
-use std::vec::Vec;
-use std::rc::Rc;
-use std::cell::RefCell;
+use std::{
+    rc::Rc,
+    cell::RefCell,
+};
+
+use orbgl_api::{Color, Surface};
 
 pub struct FramebufferSurface {
     pub width: u32,
@@ -13,8 +14,8 @@ pub struct FramebufferSurface {
 impl FramebufferSurface {
     pub fn new(width: u32, height: u32, framebuffer: *mut u8) -> Rc<RefCell<FramebufferSurface>>  {
         Rc::new(RefCell::new(Self {
-            width: width,
-            height: height,
+           width,
+            height,
             framebuffer: framebuffer,
         }))
     }

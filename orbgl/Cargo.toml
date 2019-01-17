@@ -2,11 +2,41 @@
 name = "orbgl"
 version = "0.1.0"
 authors = ["Michael Hölzl <FlowPX2@gmail.com>"]
+description = "The Orbital Graphics Library is a library for rendering 2D and 3D graphics."
+repository = "https://gitlab.redox-os.org/redox-os/orbgl"
+readme = "README.md"
+license = "MIT"
+keywords = [
+    "orbital",
+    "redox",
+    "ui",
+    "graphics", 
+    "2d", 
+    "3D",
+    "ui",
+]
+categories = ["Graphics APIs"]
+edition = "2018"
 
+[lib]
+name = "orbgl"
+path = "src/lib.rs"
+
+[features]
+# Default feature provides custom OrbGL RenderEngine and CairoRenderEngine.
+default = ["rust-cairo"]
+
+# The plain feature provides only the OrbGL RenderEngine and does not need cairo dependency.
+plain = []
+
+[dependencies]
+orbgl_api = { path = "../orbgl_api" }
+
+# Todo: stdweb could be used as dev dependency only after custom Font, Image and Color structs are implemented
 [target.wasm32-unknown-unknown.dependencies]
 stdweb = "0.4.13"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-orbclient = "*"
-rust-cairo = { git = "https://gitlab.redox-os.org/redox-os/rust-cairo.git" }
-orbimage = "0.1.16"
+# Todo: orbclient ccould be used as dev dependency onlyafter custom Font, Image and Color structs are implemented
+orbclient = "0.3.20"
+rust-cairo = { git = "https://gitlab.redox-os.org/redox-os/rust-cairo.git", optional = true }

@@ -1,7 +1,7 @@
-use super::edge::Edge;
-use super::edge::EdgeType;
-use super::point::Point;
-use super::point::PointType;
+use super::{
+    edge::{Edge, EdgeType},
+    point::{Point, PointType},
+};
 
 /// graphic path with similar functions like html canvas
 #[derive(Clone)]

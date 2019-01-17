@@ -5,7 +5,40 @@ authors = [
     "Florian Blasius <florian.blasius@ergosign.de>", 
     "Michael Hölzl <FlowPX2@gmail.com>"
 ]
+description = "Shapes extension for the Orbital Graphics Library (OrbGL)."
+repository = "https://gitlab.redox-os.org/redox-os/orbgl"
+readme = "README.md"
+license = "MIT"
+keywords = [
+    "orbital",
+    "redox",
+    "ui",
+    "graphics", 
+    "2d", 
+    "3D",
+    "ui",
+    "Shapes"
+]
+categories = ["Graphics APIs"]
 edition = "2018"
 
+[lib]
+name = "orbgl_shapes"
+path = "src/lib.rs"
+
 [dependencies]
+orbgl_api = { path = "../orbgl_api" }
+
+# Todo: stdweb could be used as dev dependency only after custom Font, Image and Color structs are implemented
+[target.wasm32-unknown-unknown.dependencies]
+stdweb = "0.4.13"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+# Todo: orbclient could be used as dev dependency only after custom Font, Image and Color structs are implemented
+orbclient = "0.3.20"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
 orbgl = { path = "../orbgl" }
+
+[target.wasm32-unknown-unknown.dev-dependencies]
+orbgl_web = { path = "../orbgl_web" }

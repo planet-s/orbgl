@@ -1,14 +1,14 @@
-use rust_cairo::*;
-use super::super::RenderEngine;
-use crate::api::Color;
-use std::rc::Rc;
-use std::cell::RefCell;
+use std::{cell::RefCell, rc::Rc};
 
-use super::super::super::Surface;
-use super::super::super::ImageSurface;
-use super::canvaspaintstate::CanvasPaintState;
-use orbimage::Image;
+use rust_cairo::*;
+
+use orbgl_api::{Color, Image, RenderEngine, Surface};
+
 use orbclient::Renderer;
+
+use crate::surface::ImageSurface;
+
+use super::canvas_paint_state::CanvasPaintState;
 
 pub struct CairoRenderEngine {
     pub surface: Rc<RefCell<Surface>>,
@@ -17,7 +17,6 @@ pub struct CairoRenderEngine {
     state: CanvasPaintState,
     saved_states: Vec<CanvasPaintState>,
 }
-
 
 impl CairoRenderEngine {
     pub fn new(surface: Rc<RefCell<Surface>>) -> Rc<RefCell<Self>> {
@@ -28,7 +27,13 @@ impl CairoRenderEngine {
             let width = surface.width() as i32;
             let height = surface.height() as i32;
             let pixel_buffer_pointer = surface.data_mut().as_mut_ptr() as *mut u8;
-            let surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, width as i32, height as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32));
+            let surface = cairo_image_surface_create_for_data(
+                pixel_buffer_pointer,
+                CAIRO_FORMAT_ARGB32,
+                width as i32,
+                height as i32,
+                cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32),
+            );
             cr_layer_a = cairo_create(surface);
         }
 
@@ -37,10 +42,15 @@ impl CairoRenderEngine {
             let width = surface.width() as i32;
             let height = surface.height() as i32;
             let pixel_buffer_pointer = surface.data_mut().as_mut_ptr() as *mut u8;
-            let surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, width as i32, height as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32));
+            let surface = cairo_image_surface_create_for_data(
+                pixel_buffer_pointer,
+                CAIRO_FORMAT_ARGB32,
+                width as i32,
+                height as i32,
+                cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32),
+            );
             cr_layer_b = cairo_create(surface);
         }
-
 
         Rc::new(RefCell::new(Self {
             cr_layer_a: cr_layer_a,
@@ -73,20 +83,26 @@ impl RenderEngine for CairoRenderEngine {
 
     fn fill(&mut self) {
         unsafe {
-            cairo_set_source_rgba(self.cr_layer_a, self.state.fill_style.r() as f64 / 255.0,
-                                  self.state.fill_style.g() as f64 / 255.0,
-                                  self.state.fill_style.b() as f64 / 255.0,
-                                  self.state.fill_style.a() as f64 / 255.0);
+            cairo_set_source_rgba(
+                self.cr_layer_a,
+                self.state.fill_style.r() as f64 / 255.0,
+                self.state.fill_style.g() as f64 / 255.0,
+                self.state.fill_style.b() as f64 / 255.0,
+                self.state.fill_style.a() as f64 / 255.0,
+            );
             cairo_fill(self.cr_layer_a);
         }
     }
 
     fn stroke(&mut self) {
         unsafe {
-            cairo_set_source_rgba(self.cr_layer_a, self.state.stroke_style.r() as f64 / 255.0,
-                                  self.state.stroke_style.g() as f64 / 255.0,
-                                  self.state.stroke_style.b() as f64 / 255.0,
-                                  self.state.stroke_style.a() as f64 / 255.0);
+            cairo_set_source_rgba(
+                self.cr_layer_a,
+                self.state.stroke_style.r() as f64 / 255.0,
+                self.state.stroke_style.g() as f64 / 255.0,
+                self.state.stroke_style.b() as f64 / 255.0,
+                self.state.stroke_style.a() as f64 / 255.0,
+            );
             cairo_set_line_width(self.cr_layer_a, self.state.line_width);
             cairo_stroke(self.cr_layer_a)
         }
@@ -131,9 +147,7 @@ impl RenderEngine for CairoRenderEngine {
     */
 
     fn bezier_curve_to(&mut self, cp1x: f64, cp1y: f64, cp2x: f64, cp2y: f64, x: f64, y: f64) {
-        unsafe {
-            cairo_curve_to(self.cr_layer_a, cp1x, cp1y, cp2x, cp2y, x, y)
-        }
+        unsafe { cairo_curve_to(self.cr_layer_a, cp1x, cp1y, cp2x, cp2y, x, y) }
     }
 
     fn rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
@@ -145,10 +159,13 @@ impl RenderEngine for CairoRenderEngine {
     fn fill_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         unsafe {
             cairo_rectangle(self.cr_layer_b, x, y, width, height);
-            cairo_set_source_rgba(self.cr_layer_b, self.state.fill_style.r() as f64 / 255.0,
-                                  self.state.fill_style.g() as f64 / 255.0,
-                                  self.state.fill_style.b() as f64 / 255.0,
-                                  self.state.fill_style.a() as f64 / 255.0);
+            cairo_set_source_rgba(
+                self.cr_layer_b,
+                self.state.fill_style.r() as f64 / 255.0,
+                self.state.fill_style.g() as f64 / 255.0,
+                self.state.fill_style.b() as f64 / 255.0,
+                self.state.fill_style.a() as f64 / 255.0,
+            );
             cairo_fill(self.cr_layer_b);
         }
     }
@@ -156,10 +173,13 @@ impl RenderEngine for CairoRenderEngine {
     fn stroke_rect(&mut self, x: f64, y: f64, width: f64, height: f64) {
         unsafe {
             cairo_rectangle(self.cr_layer_b, x, y, width, height);
-            cairo_set_source_rgba(self.cr_layer_b, self.state.stroke_style.r() as f64 / 255.0,
-                                  self.state.stroke_style.g() as f64 / 255.0,
-                                  self.state.stroke_style.b() as f64 / 255.0,
-                                  self.state.stroke_style.a() as f64 / 255.0);
+            cairo_set_source_rgba(
+                self.cr_layer_b,
+                self.state.stroke_style.r() as f64 / 255.0,
+                self.state.stroke_style.g() as f64 / 255.0,
+                self.state.stroke_style.b() as f64 / 255.0,
+                self.state.stroke_style.a() as f64 / 255.0,
+            );
             cairo_set_line_width(self.cr_layer_b, self.state.line_width);
             cairo_stroke(self.cr_layer_b)
         }
@@ -247,7 +267,13 @@ impl RenderEngine for CairoRenderEngine {
 
         unsafe {
             let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
-            let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, width as i32, height as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32));
+            let image_surface = cairo_image_surface_create_for_data(
+                pixel_buffer_pointer,
+                CAIRO_FORMAT_ARGB32,
+                width as i32,
+                height as i32,
+                cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, width as i32),
+            );
             cairo_save(self.cr_layer_a);
             cairo_translate(self.cr_layer_a, x, y);
             cairo_set_source_surface(self.cr_layer_a, image_surface, 0.0, 0.0);
@@ -262,10 +288,15 @@ impl RenderEngine for CairoRenderEngine {
         let sx = width / image.width() as f64;
         let sy = height / image.height() as f64;
 
-
         unsafe {
             let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
-            let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, w as i32, h as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, w as i32));
+            let image_surface = cairo_image_surface_create_for_data(
+                pixel_buffer_pointer,
+                CAIRO_FORMAT_ARGB32,
+                w as i32,
+                h as i32,
+                cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, w as i32),
+            );
             cairo_save(self.cr_layer_a);
             cairo_translate(self.cr_layer_a, x, y);
             cairo_scale(self.cr_layer_a, sx, sy);
@@ -275,7 +306,18 @@ impl RenderEngine for CairoRenderEngine {
         }
     }
 
-    fn draw_image_with_clip_and_size(&mut self, image: &mut Image, clip_x: f64, clip_y: f64, clip_width: f64, clip_height: f64, x: f64, y: f64, width: f64, height: f64) {
+    fn draw_image_with_clip_and_size(
+        &mut self,
+        image: &mut Image,
+        clip_x: f64,
+        clip_y: f64,
+        clip_width: f64,
+        clip_height: f64,
+        x: f64,
+        y: f64,
+        width: f64,
+        height: f64,
+    ) {
         /*
         let w = image.width() as i32;
         let h = image.height() as i32;
@@ -297,5 +339,4 @@ impl RenderEngine for CairoRenderEngine {
         }
         */
     }
-
 }

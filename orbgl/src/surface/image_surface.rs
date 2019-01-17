@@ -1,7 +1,6 @@
-use super::surface::*;
-use crate::api::Color;
-use std::rc::Rc;
-use std::cell::RefCell;
+use std::{cell::RefCell, rc::Rc};
+
+use orbgl_api::{Color, Surface};
 
 pub struct ImageSurface {
     pub width: u32,
@@ -9,20 +8,17 @@ pub struct ImageSurface {
     pub data: Vec<Color>,
 }
 
-
 impl ImageSurface {
     pub fn new(width: u32, height: u32) -> Rc<RefCell<ImageSurface>> {
         let size: usize = (width * height) as usize;
-        Rc::new(RefCell::new(
-        Self {
-            width: width,
-            height: height,
+        Rc::new(RefCell::new(Self {
+           width,
+            height,
             data: vec![Color::rgba(0, 0, 0, 0); size],
-        }
-        ))
+        }))
     }
 
-    pub fn get_image_data(&self) -> &Vec<Color>{
+    pub fn get_image_data(&self) -> &Vec<Color> {
         &self.data
     }
 }
@@ -37,7 +33,7 @@ impl Surface for ImageSurface {
         self.height
     }
 
-    fn data_mut(&mut self) -> &mut [Color]{
+    fn data_mut(&mut self) -> &mut [Color] {
         &mut self.data
     }
 }

@@ -1,15 +1,6 @@
 #![allow(dead_code)]
-extern crate orbclient;
-extern crate orbgl;
-extern crate orbimage;
-
-use orbimage::Image;
-use orbclient::{Color, Window, Renderer, EventOption};
-use orbgl::surface::ImageSurface;
-use orbgl::surface::FramebufferSurface;
-use orbgl::api::Canvas;
-use orbgl::render_engine::OrbGLRenderEngine;
-use orbgl::render_engine::CairoRenderEngine;
+use orbclient::{Window, EventOption, Renderer};
+use orbgl::prelude::*;
 
 fn main() {
     let w = 800;

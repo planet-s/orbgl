@@ -1,18 +1,8 @@
-#[cfg(not(target_arch = "wasm32"))]
+#[cfg(not(feature = "plain"))]
+pub use self::cairo::{CairoRenderEngine, CanvasPaintState};
 pub use self::orbgl::*;
-#[cfg(not(target_arch = "wasm32"))]
-mod orbgl;
 
-#[cfg(not(target_arch = "wasm32"))]
-pub use self::cairo::*;
-#[cfg(not(target_arch = "wasm32"))]
+#[cfg(not(feature = "plain"))]
 mod cairo;
-
-#[cfg(target_arch = "wasm32")]
-pub use self::web::*;
-
-#[cfg(target_arch = "wasm32")]
-mod web;
-
-pub use self::render_engine::*;
-mod render_engine;
+mod opengl;
+mod orbgl;

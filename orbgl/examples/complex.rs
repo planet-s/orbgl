@@ -1,17 +1,7 @@
 #![allow(dead_code)]
-extern crate orbclient;
-extern crate orbgl;
-
-use std::fs::File;
-use std::io::Read;
-
-use orbclient::{Color, Window, Renderer, EventOption};
-use orbgl::surface::ImageSurface;
-use orbgl::surface::FramebufferSurface;
-use orbgl::api::Canvas;
-use orbgl::render_engine::OrbGLRenderEngine;
-use orbgl::render_engine::CairoRenderEngine;
-
+use std::{fs::File, io::Read};
+use orbclient::{Window, EventOption, Renderer};
+use orbgl::prelude::*;
 
 fn main() {
     let w = 800;
@@ -30,7 +20,7 @@ fn main() {
     //let surface = FramebufferSurface::new(800, 600, window.data_mut().as_mut_ptr() as *mut u8);
     let render_engine = OrbGLRenderEngine::new(surface.clone()); //
     let render_engine_cairo = CairoRenderEngine::new(surface.clone());
-    let mut canvas = Canvas::new(render_engine.clone());
+    let mut canvas = Canvas::new(render_engine_cairo.clone());
 
     //Transform the canvas
     canvas.transform(0.5, 0.0, 0.0, 0.5, 0.0, 0.0);

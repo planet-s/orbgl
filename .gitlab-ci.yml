@@ -2,6 +2,7 @@ image: 'rust:latest'
 
 stages:
     - build
+    - test
 
 variables:
     CARGO_HOME: $CI_PROJECT_DIR/cargo
@@ -14,7 +15,9 @@ build:linux:
   before_script:
     - apt-get update && apt-get -y install cmake && apt-get install libcairo2-dev
   script:
-    - cargo build
+    - cargo build -p orbgl_api
+    - cargo build -p orbgl
+    - cargo build -p orbgl_shapes
   cache:
     paths:
       - cargo/
@@ -25,11 +28,20 @@ build:web:
   before_script:
     - cargo install --force cargo-web
   script:
-    - cargo web build -p orbgl
+    - cargo web build -p orbgl_web
   cache:
     paths:
       - cargo/
       - target/
+
+test:linux:
+  stage: test
+  before_script:
+    - apt-get update && apt-get -y install cmake && apt-get install libcairo2-dev
+  dependencies:
+      - build:linux
+  script:
+    - cargo test -p orgl_shapes
 
 # build:redox:
 #   stage: build

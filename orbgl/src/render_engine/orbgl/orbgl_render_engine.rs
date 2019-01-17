@@ -1,16 +1,14 @@
-use super::super::RenderEngine;
-use crate::api::Color;
-use std::rc::Rc;
-use std::cell::RefCell;
-use super::super::super::Surface;
-use super::super::super::ImageSurface;
+use std::{cell::RefCell, rc::Rc};
 
-use super::point::Point;
-use super::pathbuilder::PathBuilder;
-use super::edge::Edge;
-use super::edge::EdgeType;
-use super::canvaspaintstate::CanvasPaintState;
-use orbimage::Image;
+use orbgl_api::{Color, Image, RenderEngine, Surface};
+
+use crate::surface::ImageSurface;
+
+use super::{
+    canvas_paint_state::CanvasPaintState,
+    pathbuilder::PathBuilder, point::Point,
+    edge::{Edge, EdgeType},
+};
 
 pub struct OrbGLRenderEngine {
     pub surface: Rc<RefCell<Surface>>,
@@ -18,7 +16,6 @@ pub struct OrbGLRenderEngine {
     state: CanvasPaintState,
     saved_states: Vec<CanvasPaintState>,
 }
-
 
 impl OrbGLRenderEngine {
     pub fn new(surface: Rc<RefCell<Surface>>) -> Rc<RefCell<Self>> {
@@ -36,11 +33,12 @@ impl OrbGLRenderEngine {
         let mut edges: Vec<Edge>;
         edges = self.path_builder.build();
 
-
         for edge in edges {
             let start_point = self.state.transform.apply_to_point(edge.start);
             let end_point = self.state.transform.apply_to_point(edge.end);
-            let t: f64 = (((end_point.x - start_point.x) * (y as f64 - start_point.y)) / (end_point.y - start_point.y)) + start_point.x;
+            let t: f64 = (((end_point.x - start_point.x) * (y as f64 - start_point.y))
+                / (end_point.y - start_point.y))
+                + start_point.x;
             if (start_point.y > y as f64) != (end_point.y > y as f64) {
                 cross_points.push(t as f64);
             }
@@ -49,7 +47,6 @@ impl OrbGLRenderEngine {
         cross_points.sort_by(|a, b| a.partial_cmp(&b).unwrap());
         cross_points
     }
-
 
     fn pixel(&mut self, x: i32, y: i32, color: Color) {
         let mut surface = self.surface.borrow_mut();
@@ -67,7 +64,8 @@ impl OrbGLRenderEngine {
             } else if alpha > 0 {
                 let n_alpha = 255 - alpha;
                 let rb = ((n_alpha * (*old & 0x00FF00FF)) + (alpha * (new & 0x00FF00FF))) >> 8;
-                let ag = (n_alpha * ((*old & 0xFF00FF00) >> 8)) + (alpha * (0x01000000 | ((new & 0x0000FF00) >> 8)));
+                let ag = (n_alpha * ((*old & 0xFF00FF00) >> 8))
+                    + (alpha * (0x01000000 | ((new & 0x0000FF00) >> 8)));
 
                 *old = (rb & 0x00FF00FF) | (ag & 0xFF00FF00);
             }
@@ -78,8 +76,16 @@ impl OrbGLRenderEngine {
         let mut x = argx1;
         let mut y = argy1;
 
-        let dx = if argx1 > argx2 { argx1 - argx2 } else { argx2 - argx1 };
-        let dy = if argy1 > argy2 { argy1 - argy2 } else { argy2 - argy1 };
+        let dx = if argx1 > argx2 {
+            argx1 - argx2
+        } else {
+            argx2 - argx1
+        };
+        let dy = if argy1 > argy2 {
+            argy1 - argy2
+        } else {
+            argy2 - argy1
+        };
 
         let sx = if argx1 < argx2 { 1 } else { -1 };
         let sy = if argy1 < argy2 { 1 } else { -1 };
@@ -91,7 +97,9 @@ impl OrbGLRenderEngine {
             self.pixel(x, y, color);
             //self.wu_circle(x,y,1,color);
 
-            if x == argx2 && y == argy2 { break; };
+            if x == argx2 && y == argy2 {
+                break;
+            };
 
             err_tolerance = 2 * err;
 
@@ -126,11 +134,22 @@ impl OrbGLRenderEngine {
 
         self.pixel(int_x, int_y, Color::rgba(r, g, b, (a as f64 * _a) as u8));
 
-        self.pixel(int_x + 1, int_y, Color::rgba(r, g, b, (a as f64 * _b) as u8));
-        self.pixel(int_x, int_y + 1, Color::rgba(r, g, b, (a as f64 * _c) as u8));
-        self.pixel(int_x + 1, int_y + 1, Color::rgba(r, g, b, (a as f64 * _d) as u8));
+        self.pixel(
+            int_x + 1,
+            int_y,
+            Color::rgba(r, g, b, (a as f64 * _b) as u8),
+        );
+        self.pixel(
+            int_x,
+            int_y + 1,
+            Color::rgba(r, g, b, (a as f64 * _c) as u8),
+        );
+        self.pixel(
+            int_x + 1,
+            int_y + 1,
+            Color::rgba(r, g, b, (a as f64 * _d) as u8),
+        );
     }
-
 
     /// antialiased line
     #[allow(unused)]
@@ -157,7 +176,6 @@ impl OrbGLRenderEngine {
 }
 
 impl RenderEngine for OrbGLRenderEngine {
-
     fn save(&mut self) {
         self.saved_states.push(self.state);
     }
@@ -187,19 +205,19 @@ impl RenderEngine for OrbGLRenderEngine {
             let start_point = self.state.transform.apply_to_point(edge.start);
             let end_point = self.state.transform.apply_to_point(edge.end);
 
-            if(start_point.y < min_y) {
+            if (start_point.y < min_y) {
                 min_y = start_point.y;
             }
 
-            if(end_point.y < min_y) {
+            if (end_point.y < min_y) {
                 min_y = end_point.y;
             }
 
-            if(start_point.y > max_y) {
+            if (start_point.y > max_y) {
                 max_y = start_point.y;
             }
 
-            if(end_point.y > max_y) {
+            if (end_point.y > max_y) {
                 max_y = end_point.y;
             }
             //self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
@@ -208,15 +226,13 @@ impl RenderEngine for OrbGLRenderEngine {
         for y in min_y as i32..max_y as i32 {
             let mut lines = self.scanline(y as f64);
 
-
             let mut j: i32 = 0;
             while j < lines.len() as i32 {
                 if j + 1 < lines.len() as i32 {
                     let x_start = lines[j as usize];
                     let x_stop = lines[(j + 1) as usize];
 
-
-                    self.line((x_start+1.0) as i32, y, (x_stop) as i32, y, color);
+                    self.line((x_start + 1.0) as i32, y, (x_stop) as i32, y, color);
 
                     j = j + 2;
                 } else {
@@ -228,7 +244,13 @@ impl RenderEngine for OrbGLRenderEngine {
         for edge in &edges {
             let start_point = self.state.transform.apply_to_point(edge.start);
             let end_point = self.state.transform.apply_to_point(edge.end);
-            self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, color);
+            self.aa_line(
+                start_point.x,
+                start_point.y,
+                end_point.x,
+                end_point.y,
+                color,
+            );
         }
     }
 
@@ -243,7 +265,6 @@ impl RenderEngine for OrbGLRenderEngine {
         color = self.state.stroke_style;
         line_width = self.state.line_width;
         edges = self.path_builder.build();
-
 
         for edge in edges {
             match edge.edge_type {
@@ -262,7 +283,13 @@ impl RenderEngine for OrbGLRenderEngine {
                         new_color = Color::rgba(new_r as u8, new_g as u8, new_b as u8, new_a as u8);
                     }
 
-                    self.aa_line(start_point.x, start_point.y, end_point.x, end_point.y, new_color);
+                    self.aa_line(
+                        start_point.x,
+                        start_point.y,
+                        end_point.x,
+                        end_point.y,
+                        new_color,
+                    );
                 }
                 _ => {}
             }
@@ -273,10 +300,9 @@ impl RenderEngine for OrbGLRenderEngine {
         self.path_builder = PathBuilder::new();
     }
 
-
     fn arc(&mut self, x: f64, y: f64, radius: f64, start_segment: f64, end_segment: f64) {
         let path_builder = &mut self.path_builder;
-        path_builder.arc(x,y,radius,start_segment,end_segment);
+        path_builder.arc(x, y, radius, start_segment, end_segment);
     }
 
     fn close_path(&mut self) {

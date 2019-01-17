@@ -1,0 +1,31 @@
+[package]
+name = "orbgl_web"
+version = "0.1.0"
+authors = [
+    "Florian Blasius <florian.blasius@ergosign.de>",
+    "Michael Hölzl <FlowPX2@gmail.com>"
+]
+description = "Web version of Orbital Graphics Library (OrbGL)."
+repository = "https://gitlab.redox-os.org/redox-os/orbgl"
+readme = "README.md"
+license = "MIT"
+keywords = [
+    "orbital",
+    "redox",
+    "ui",
+    "graphics", 
+    "2d", 
+    "3D",
+    "ui",
+    "web",
+]
+categories = ["Graphics APIs"]
+edition = "2018"
+
+[lib]
+name = "orbgl_web"
+path = "src/lib.rs"
+
+[dependencies]
+stdweb = "0.4.13"
+orbgl_api = { path = "../orbgl_api" }
