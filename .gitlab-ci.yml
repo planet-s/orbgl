@@ -41,7 +41,7 @@ test:linux:
   dependencies:
       - build:linux
   script:
-    - cargo test -p orgl_shapes
+    - cargo test -p orbgl_shapes
 
 # build:redox:
 #   stage: build
