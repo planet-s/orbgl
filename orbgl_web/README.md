@@ -1,4 +1,4 @@
-# OrbGL Web - The Rust Web Graphics Library
+# OrbGL Web - The Orbital Graphics Library for the web
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./../LICENSE)
 
