@@ -9,6 +9,13 @@ The Orbital Graphics Library is a library for rendering 2D and 3D graphics.
 
 ![](screenshots/complex.png)
 
+### Workspace overview
+
+* orbgl: main crate compatible with Redox, Linux, macOS and Window
+* orbgl_api: base API
+* orbgl_shapes: optinal extion with drawable shapes 
+* orbgl_web: web version of OrbGL and is compatible with stdweb.
+
 ### Goal
 The first goal is to be compatible with HTML Canvas.
 
