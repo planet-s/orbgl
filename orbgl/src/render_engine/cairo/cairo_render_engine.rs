@@ -318,15 +318,25 @@ impl RenderEngine for CairoRenderEngine {
         width: f64,
         height: f64,
     ) {
-        /*
-        let w = image.width() as i32;
-        let h = image.height() as i32;
-        let sx = clip_width / image.width() as f64;
-        let sy = clip_height / image.height() as f64;
 
+        //create a temp clipped image
+        let image_width = image.width();
+        let data = image.data_mut();
+        let mut clipped_image:Vec<Color> = Vec::new();
+        for y in clip_y as u32..(clip_y+clip_height) as u32 {
+            for x in clip_x as u32..(clip_x+clip_width) as u32 {
+                let old = data[y as usize * image_width as usize + x as usize];
+                clipped_image.push(old);
+            }
+        }
+
+        let w = clip_width as i32;
+        let h = clip_height as i32;
+        let sx = width / clip_width as f64;
+        let sy = height / clip_height as f64;
 
         unsafe {
-            let pixel_buffer_pointer = image.data_mut().as_mut_ptr() as *mut u8;
+            let pixel_buffer_pointer = clipped_image.as_mut_ptr() as *mut u8;
             let image_surface = cairo_image_surface_create_for_data(pixel_buffer_pointer, CAIRO_FORMAT_ARGB32, w as i32, h as i32, cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, w as i32));
             cairo_save(self.cr_layer_a);
             cairo_translate(self.cr_layer_a, x, y);
@@ -337,6 +347,6 @@ impl RenderEngine for CairoRenderEngine {
             cairo_paint(self.cr_layer_a);
             cairo_restore(self.cr_layer_a);
         }
-        */
+
     }
 }
