@@ -26,8 +26,6 @@ fn main() {
     window.sync();
 
     let mut deg = 0.0;
-
-    let mut delta_time = time::precise_time_ns();
     let mut start = Instant::now();
     'event: loop {
 
