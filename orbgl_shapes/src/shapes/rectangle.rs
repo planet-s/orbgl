@@ -2,7 +2,7 @@ use orbgl_api::Canvas;
 
 use crate::structs::{Border, Bordered, Brush, Position, Rect, Size, Thickness};
 
-use super::{PathSegment, Shape};
+use super::Shape;
 
 /// Used to build a rectangle, specifying additional details.
 #[derive(Default)]
@@ -138,7 +138,7 @@ impl Rectangle {
         let m_pi = 3.14159265;
         let degrees = m_pi / 180.0;
 
-        canvas.begin_path();
+        // canvas.begin_path();
         canvas.arc(
             x + width - radius,
             y + radius,
@@ -173,7 +173,6 @@ impl Rectangle {
             _ => {} // todo: gradient
         }
 
-        canvas.close_path();
         canvas.fill();
     }
 

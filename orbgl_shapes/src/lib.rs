@@ -4,4 +4,3 @@
 pub mod shapes;
 pub mod structs;
 pub mod prelude;
-pub mod shape_renderer;

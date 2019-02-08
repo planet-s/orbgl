@@ -1,4 +1,3 @@
-
 use orbgl_api::Color;
 
 /// Describes a position on a colorful gradient.
@@ -16,6 +15,15 @@ pub enum Brush {
 
     /// Paints an area with a linear gradient.
     Gradient(Vec<GradientStop>),
+}
+
+impl From<Brush> for Color {
+     fn from(b: Brush) -> Color {
+        match b {
+            Brush::SolidColor(color) => color.clone(),
+            _ => Color::rgb(0, 0, 0)
+        }
+    }
 }
 
 impl Default for Brush {
@@ -43,21 +51,21 @@ impl From<Vec<GradientStop>> for Brush {
 }
 
 // Todo: this helper could me removed after orbgl_api is providing an own color struct
- fn get_color(hex: &str) -> Color {
-        let clean_hex = hex.trim_start_matches("#");
-        match clean_hex.len() {
-            6 | 8 => {
-                let mut x = match u32::from_str_radix(&clean_hex, 16) {
-                    Ok(x) => x,
-                    Err(_) => 0,
-                };
+fn get_color(hex: &str) -> Color {
+    let clean_hex = hex.trim_start_matches("#");
+    match clean_hex.len() {
+        6 | 8 => {
+            let mut x = match u32::from_str_radix(&clean_hex, 16) {
+                Ok(x) => x,
+                Err(_) => 0,
+            };
 
-                if clean_hex.len() == 6 {
-                    x |= 0xFF_000_000;
-                }
-
-                Color { data: x }
+            if clean_hex.len() == 6 {
+                x |= 0xFF_000_000;
             }
-            _ => Color { data: 0 },
+
+            Color { data: x }
         }
+        _ => Color { data: 0 },
     }
+}
