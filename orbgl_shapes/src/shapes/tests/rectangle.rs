@@ -2,52 +2,52 @@ use super::*;
 use crate::structs::{Border, Bordered, Brush, Position, Rect, Size, Thickness};
 
 #[test]
-fn test_with_position() {
+fn test_position() {
     let position = (5.0, 10.0);
 
     let builder = RectangleBuilder::new();
-    let rectangle = builder.with_position(position.0, position.1).build();
+    let rectangle = builder.position(position.0, position.1).build();
 
     assert_eq!(rectangle.position(), position);
 }
 
 #[test]
-fn test_with_background() {
+fn test_background() {
     let background = Brush::from("#000000");
 
     let builder = RectangleBuilder::new();
-    let rectangle = builder.with_background(background.clone()).build();
+    let rectangle = builder.background(background.clone()).build();
 
     assert_eq!(rectangle.background(), &background);
 }
 
 #[test]
-fn test_with_size() {
+fn test_size() {
     let size = (5.0, 10.0);
 
     let builder = RectangleBuilder::new();
-    let rectangle = builder.with_size(size.0, size.1).build();
+    let rectangle = builder.size(size.0, size.1).build();
 
     assert_eq!(rectangle.size(), size);
 }
 
 #[test]
-fn test_with_rect() {
+fn test_rect() {
     let rect = (5.0, 10.0, 20.0, 30.0);
 
     let builder = RectangleBuilder::new();
-    let rectangle = builder.with_rect(rect.0, rect.1, rect.2, rect.3).build();
+    let rectangle = builder.rect(rect.0, rect.1, rect.2, rect.3).build();
 
     assert_eq!(rectangle.position(), ((rect.0, rect.1)));
     assert_eq!(rectangle.size(), ((rect.2, rect.3)));
 }
 
 #[test]
-fn test_with_border() {
-    let border = Border::create().with_radius(5.0).build();
+fn test_border() {
+    let border = Border::create().radius(5.0).build();
 
     let builder = RectangleBuilder::new();
-    let rectangle = builder.with_border(border.clone()).build();
+    let rectangle = builder.border(border.clone()).build();
 
     assert_eq!(rectangle.border(), &border);
 }
@@ -62,45 +62,6 @@ fn test_set_background() {
     rectangle.set_background(background.clone());
 
     assert_eq!(rectangle.background(), &background);
-}
-
-#[test]
-fn test_build_path() {
-    let builder = RectangleBuilder::new();
-    let mut rectangle = builder.build();
-
-    rectangle.build_path();
-    assert_eq!(rectangle.path().len(), 2);
-
-    let builder = RectangleBuilder::new();
-    let mut rectangle = builder
-        .with_border(
-            Border::create()
-                .with_thickness(Thickness::new(10.0, 10.0, 10.0, 10.0))
-                .build(),
-        )
-        .build();
-    rectangle.build_path();
-    assert_eq!(rectangle.path().len(), 4);
-
-    let builder = RectangleBuilder::new();
-    let mut rectangle = builder
-        .with_border(Border::create().with_radius(10.0).build())
-        .build();
-    rectangle.build_path();
-    assert_eq!(rectangle.path().len(), 8);
-
-    let builder = RectangleBuilder::new();
-    let mut rectangle = builder
-        .with_border(
-            Border::create()
-                .with_thickness(Thickness::new(10.0, 10.0, 10.0, 10.0))
-                .with_radius(10.0)
-                .build(),
-        )
-        .build();
-    rectangle.build_path();
-    assert_eq!(rectangle.path().len(), 16);
 }
 
 #[test]
@@ -204,7 +165,7 @@ fn test_set_border_radius() {
 
 #[test]
 fn test_set_border() {
-    let border = Border::create().with_radius(4.0).build();
+    let border = Border::create().radius(4.0).build();
     let builder = RectangleBuilder::new();
     let mut rectangle = builder.build();
 

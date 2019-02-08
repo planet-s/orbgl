@@ -2,7 +2,7 @@
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./../LICENSE)
 
-This is an optinal extion for the Orbital Graphics Library (OrbGL). It gives you the ability to use and draw shapes like Rectangle and ImageElement instead of calling plain drawing functions. It is compatible with orbgl and orgl_web.
+This is an optional extension for the Orbital Graphics Library (OrbGL). It gives you the ability to use and draw shapes like Rectangle and ImageElement instead of calling plain drawing functions. It is compatible with orbgl and orgl_web.
 
 ## Minimal Example
 
@@ -32,8 +32,8 @@ fn main() {
     let mut canvas = Canvas::new(render_engine.clone());
 
     let mut rectangle = Rectangle::create()
-        .with_rect(10.0, 10.0, 100.0, 75.0)
-        .with_background(Brush::from("#000000"))
+        .rect(10.0, 10.0, 100.0, 75.0)
+        .background("#000000")
         .build();
 
     canvas.render_shape(&mut rectangle);
@@ -87,7 +87,7 @@ For the `*-emscripten` targets `cargo-web` is not necessary, however
 the native `wasm32-unknown-unknown` which doesn't need Emscripten
 **requires** `cargo-web` to work!
 
-## Build and run documenation
+## Build and run documentation
 
 You can build and run the latest documentation y executing the following command:
 

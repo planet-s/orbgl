@@ -1,6 +1,6 @@
 use std::{cell::RefCell, rc::Rc};
 
-use stdweb::web::{CanvasRenderingContext2d, FillRule};
+use stdweb::web::FillRule;
 
 use stdweb::{_js_impl, js};
 
@@ -124,7 +124,7 @@ impl RenderEngine for WebRenderEngine {
     }
 
     fn set_line_width(&mut self, line_width: f64) {
-        self.set_line_width(line_width);
+        self.surface.context.set_line_width(line_width);
     }
 
     fn draw_image(&mut self, image: &mut Image, x: f64, y: f64) {

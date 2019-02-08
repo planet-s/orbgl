@@ -9,25 +9,25 @@ pub struct BorderBuilder {
 }
 
 impl BorderBuilder {
-    /// Creates a new border bilder with default values.
+    /// Creates a new border builder with default values.
     pub fn new() -> BorderBuilder {
         BorderBuilder::default()
     }
 
-    /// Inserts a border brsuh.
-    pub fn with_brush(mut self, brush: Brush) -> Self {
-        self.brush = brush;
+    /// Inserts a border brush.
+    pub fn brush<B: Into<Brush>>(mut self, brush: B) -> Self {
+        self.brush = brush.into();
         self
     }
 
     /// Inserts a border thickness.
-    pub fn with_thickness(mut self, thickness: Thickness) -> Self {
+    pub fn thickness(mut self, thickness: Thickness) -> Self {
         self.thickness = thickness;
         self
     }
 
     /// Inserts a border radius.
-    pub fn with_radius(mut self, radius: f64) -> Self {
+    pub fn radius(mut self, radius: f64) -> Self {
         self.radius = radius;
         self
     }
@@ -62,8 +62,8 @@ impl Border {
     }
 
     /// Sets the border brush.
-    pub fn set_brush(&mut self, brush: Brush) {
-        self.brush = brush;
+    pub fn set_brush<B: Into<Brush>>(&mut self, brush: B) {
+        self.brush = brush.into();
     }
 
     /// Gets the thickness.

@@ -15,43 +15,43 @@ fn test_new() {
 }
 
 #[test]
-fn test_with_position() {
+fn test_position() {
     let position = (5.0, 10.0);
 
     let builder = ImageElementBuilder::new("");
-    let image = builder.with_position(position.0, position.1).build();
+    let image = builder.position(position.0, position.1).build();
 
     assert_eq!(image.position(), position);
 }
 
 #[test]
-fn test_with_size() {
+fn test_size() {
     let size = (5.0, 10.0);
 
     let builder = ImageElementBuilder::new("");
-    let image = builder.with_size(size.0, size.1).build();
+    let image = builder.size(size.0, size.1).build();
 
     assert_eq!(image.size(), size);
 }
 
 #[test]
-fn test_with_rect() {
+fn test_rect() {
     let rect = (5.0, 10.0, 20.0, 30.0);
 
     let builder = ImageElementBuilder::new("");
-    let image = builder.with_rect(rect.0, rect.1, rect.2, rect.3).build();
+    let image = builder.rect(rect.0, rect.1, rect.2, rect.3).build();
 
     assert_eq!(image.position(), ((rect.0, rect.1)));
     assert_eq!(image.size(), ((rect.2, rect.3)));
 }
 
 #[test]
-fn test_with_source_rect() {
+fn test_source_rect() {
     let rect = Rect::new(0.0, 10.0, 20.0, 30.0);
 
     let builder = ImageElementBuilder::new("");
     let image = builder
-        .with_source_rect(rect.x, rect.y, rect.width, rect.height)
+        .source_rect(rect.x, rect.y, rect.width, rect.height)
         .build();
 
     assert!(image.source_rect().is_some());

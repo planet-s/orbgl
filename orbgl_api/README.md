@@ -4,7 +4,7 @@
 
 This crate provides the base API of The Orbital Graphics Library (OrbGL) and is used by the other OrbGL crates.
 
-## Build and run documenation
+## Build and run documentation
 
 You can build and run the latest documentation y executing the following command:
 

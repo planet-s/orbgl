@@ -1,7 +1,7 @@
 
 use orbgl_api::Color;
 
-/// Describes a position on a coloerfull gradient.
+/// Describes a position on a colorful gradient.
 #[derive(Clone, PartialEq, Debug)]
 pub struct GradientStop {
     pub position: f64,

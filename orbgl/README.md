@@ -52,7 +52,7 @@ You can start the widgets example by executing the following command:
 cargo run --example widgets --release
 ```
 
-## Build and run documenation
+## Build and run documentation
 
 You can build and run the latest documentation y executing the following command:
 

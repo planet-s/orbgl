@@ -4,7 +4,7 @@
 pub use self::canvas::Canvas;
 pub use self::color::Color;
 pub use self::font::Font;
-pub use self::image::Image;
+pub use self::image::{Image, FromSource};
 pub use self::render_engine::RenderEngine;
 pub use self::surface::Surface;
 

@@ -1,13 +1,15 @@
+use orbgl_api::Canvas;
+
 use crate::structs::{Border, Bordered, Brush, Position, Rect, Size, Thickness};
 
-use super::{Shape, PathSegment};
+use super::{PathSegment, Shape};
 
 /// Used to build a rectangle, specifying additional details.
 #[derive(Default)]
 pub struct RectangleBuilder {
-    pub background: Brush,
-    pub rect: Rect,
-    pub border: Border,
+    background: Brush,
+    rect: Rect,
+    border: Border,
 }
 
 impl RectangleBuilder {
@@ -17,53 +19,49 @@ impl RectangleBuilder {
     }
 
     /// Inserts a new background brush.
-    pub fn with_background(mut self, background: Brush) -> Self {
-        self.background = background;
+    pub fn background<B: Into<Brush>>(mut self, background: B) -> Self {
+        self.background = background.into();
         self
     }
 
     /// Inserts a new position.
-    pub fn with_position(mut self, x: f64, y: f64) -> Self {
+    pub fn position(mut self, x: f64, y: f64) -> Self {
         self.rect.x = x;
         self.rect.y = y;
         self
     }
 
     /// Inserts a new size.
-    pub fn with_size(mut self, width: f64, height: f64) -> Self {
+    pub fn size(mut self, width: f64, height: f64) -> Self {
         self.rect.width = width;
         self.rect.height = height;
         self
     }
 
     /// Inserts a new bounding rect and overwrites position and size.
-    pub fn with_rect(self, x: f64, y: f64, width: f64, height: f64) -> Self {
-        self.with_position(x, y).with_size(width, height)
+    pub fn rect(self, x: f64, y: f64, width: f64, height: f64) -> Self {
+        self.position(x, y).size(width, height)
     }
 
     /// Inserts a new border.
-    pub fn with_border(mut self, border: Border) -> Self {
+    pub fn border(mut self, border: Border) -> Self {
         self.border = border;
         self
     }
 
     /// Builds the rectangle.
     pub fn build(self) -> Rectangle {
-        let mut rect = Rectangle {
-            path: vec![],
+        Rectangle {
             rect: self.rect,
             border: self.border,
             background: self.background,
-        };
-        rect.build_path();
-        rect
+        }
     }
 }
 
-/// The ÌmageElement` is used to display a rectangle on the screen.
+/// The `Rectangle` is used to display a rectangle on the screen.
 #[derive(Default)]
 pub struct Rectangle {
-    path: Vec<PathSegment>,
     rect: Rect,
     border: Border,
     background: Brush,
@@ -81,25 +79,33 @@ impl Rectangle {
     }
 
     /// Sets the background brush.
-    pub fn set_background(&mut self, background: Brush) {
-        self.background = background;
+    pub fn set_background<B: Into<Brush>>(&mut self, background: B) {
+        self.background = background.into();
     }
 
-    // Builds rectangle path without border and radius.
-    fn build_rect_path(&mut self, x: f64, y: f64, width: f64, height: f64, brush: Brush) {
-        self.path.push(PathSegment::SetFillStyleBrush { brush });
-        self.path.push(PathSegment::FillRect {
-            x,
-            y,
-            width,
-            height,
-        });
+    // Renders rectangle without border and radius.
+    fn render_rect_path(
+        &mut self,
+        canvas: &mut Canvas,
+        x: f64,
+        y: f64,
+        width: f64,
+        height: f64,
+        brush: Brush,
+    ) {
+        match brush {
+            Brush::SolidColor(color) => canvas.set_fill_style(color),
+            _ => {} // todo: gradient
+        }
+
+        canvas.fill_rect(x, y, width, height);
     }
 
-    // Builds rectangle path with border and without radius.
-    fn build_bordered_rect_path(&mut self) {
+    // Renders rectangle with border and without radius.
+    fn render_bordered_rect_path(&mut self, canvas: &mut Canvas) {
         // border
-        self.build_rect_path(
+        self.render_rect_path(
+            canvas,
             self.rect.x,
             self.rect.y,
             self.rect.width,
@@ -108,7 +114,8 @@ impl Rectangle {
         );
 
         // content
-        self.build_rect_path(
+        self.render_rect_path(
+            canvas,
             self.rect.x + self.border.thickness().left,
             self.rect.y + self.border.thickness().top,
             self.rect.width - self.border.thickness().left - self.border.thickness().right,
@@ -117,9 +124,10 @@ impl Rectangle {
         );
     }
 
-    // Builds ractangle path with radius and withoud border.
-    fn build_rounded_rect_path(
+    // Builds rectangle path with radius and without border.
+    fn render_rounded_rect_path(
         &mut self,
+        canvas: &mut Canvas,
         x: f64,
         y: f64,
         width: f64,
@@ -130,45 +138,50 @@ impl Rectangle {
         let m_pi = 3.14159265;
         let degrees = m_pi / 180.0;
 
-        self.path.push(PathSegment::BeginPath());
-        self.path.push(PathSegment::Arc {
-            x: x + width - radius,
-            y: y + radius,
+        canvas.begin_path();
+        canvas.arc(
+            x + width - radius,
+            y + radius,
             radius,
-            start_angle: -90.0 * degrees,
-            end_engle: 0.0 * degrees,
-        });
-        self.path.push(PathSegment::Arc {
-            x: x + width - radius,
-            y: y + height - radius,
+            -90.0 * degrees,
+            0.0 * degrees,
+        );
+        canvas.arc(
+            x + width - radius,
+            y + height - radius,
             radius,
-            start_angle: 0.0 * degrees,
-            end_engle: 90.0 * degrees,
-        });
-        self.path.push(PathSegment::Arc {
-            x: x + radius,
-            y: y + height - radius,
+            0.0 * degrees,
+            90.0 * degrees,
+        );
+        canvas.arc(
+            x + radius,
+            y + height - radius,
             radius,
-            start_angle: 90.0 * degrees,
-            end_engle: 180.0 * degrees,
-        });
-        self.path.push(PathSegment::Arc {
-            x: x + radius,
-            y: y + radius,
+            90.0 * degrees,
+            180.0 * degrees,
+        );
+        canvas.arc(
+            x + radius,
+            y + radius,
             radius,
-            start_angle: 180.0 * degrees,
-            end_engle: 270.0 * degrees,
-        });
+            180.0 * degrees,
+            270.0 * degrees,
+        );
 
-        self.path.push(PathSegment::SetFillStyleBrush { brush });
-        self.path.push(PathSegment::ClosePath());
-        self.path.push(PathSegment::Fill());
+        match brush {
+            Brush::SolidColor(color) => canvas.set_fill_style(color),
+            _ => {} // todo: gradient
+        }
+
+        canvas.close_path();
+        canvas.fill();
     }
 
-    // Builds rectangle with border and radius.
-    fn build_rounded_bordered_rect_path(&mut self) {
+    // Renders rectangle with border and radius.
+    fn render_rounded_bordered_rect_path(&mut self, canvas: &mut Canvas) {
         // border
-        self.build_rounded_rect_path(
+        self.render_rounded_rect_path(
+            canvas,
             self.rect.x,
             self.rect.y,
             self.rect.width,
@@ -178,7 +191,8 @@ impl Rectangle {
         );
 
         // content
-        self.build_rounded_rect_path(
+         self.render_rounded_rect_path(
+            canvas,
             self.rect.x + self.border.thickness().left,
             self.rect.y + self.border.thickness().top,
             self.rect.width - self.border.thickness().left - self.border.thickness().right,
@@ -190,22 +204,18 @@ impl Rectangle {
 }
 
 impl Shape for Rectangle {
-    fn path(&mut self) -> &mut [PathSegment] {
-        &mut self.path
-    }
-
-    fn build_path(&mut self) {
-        self.path.clear();
-        let has_thickness = self.border.thickness().left > 0.0
+    fn render(&mut self, canvas: &mut Canvas) {
+         let has_thickness = self.border.thickness().left > 0.0
             || self.border.thickness().top > 0.0
             || self.border.thickness().right > 0.0
             || self.border.thickness().bottom > 0.0;
 
         if self.border.radius() > 0.0 {
             if has_thickness {
-                self.build_rounded_bordered_rect_path();
+                self.render_rounded_bordered_rect_path(canvas);
             } else {
-                self.build_rounded_rect_path(
+                self.render_rounded_rect_path(
+                    canvas,
                     self.rect.x,
                     self.rect.y,
                     self.rect.width,
@@ -216,9 +226,10 @@ impl Shape for Rectangle {
             }
         } else {
             if has_thickness {
-                self.build_bordered_rect_path();
+                self.render_bordered_rect_path(canvas);
             } else {
-                self.build_rect_path(
+                self.render_rect_path(
+                    canvas,
                     self.rect.x,
                     self.rect.y,
                     self.rect.width,

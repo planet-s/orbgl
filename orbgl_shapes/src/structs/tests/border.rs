@@ -1,31 +1,31 @@
 use super::*;
 
 #[test]
-fn test_with_brush() {
+fn test_brush() {
     let brush = Brush::from("#000000");
 
     let builder = BorderBuilder::new();
-    let border = builder.with_brush(brush).build();
+    let border = builder.brush(brush).build();
 
     let test_brush = Brush::from("#000000");
     assert_eq!(border.brush(), &test_brush);
 }
 
 #[test]
-fn test_with_thickness() {
+fn test_thickness() {
     let thickness = Thickness::new(0.0, 0.0, 0.0, 0.0);
 
     let builder = BorderBuilder::new();
-    let border = builder.with_thickness(thickness).build();
+    let border = builder.thickness(thickness).build();
     assert_eq!(border.thickness(), thickness);
 }
 
 #[test]
-fn test_with_radius() {
+fn test_radius() {
     let radius = 0.0;
 
     let builder = BorderBuilder::new();
-    let border = builder.with_radius(radius).build();
+    let border = builder.radius(radius).build();
     assert_eq!(border.radius(), radius);
 }
 

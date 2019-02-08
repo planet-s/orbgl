@@ -59,7 +59,7 @@ pub enum PathSegment {
         height: f64,
     },
 
-    /// Drawa an image part.
+    /// Draw an image part.
     DrawImageWithClipAndSize {
         image: Image,
         clip_x: f64,

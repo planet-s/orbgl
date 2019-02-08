@@ -3,8 +3,8 @@ use orbclient::Renderer;
 
 use crate::structs::{Position, Rect, Size};
 
-use super::{Shape, PathSegment};
-use orbgl_api::{Image, Color};
+use super::Shape;
+use orbgl_api::{Canvas, Color, Image, FromSource};
 
 /// Used to build a image element, specifying additional details.
 pub struct ImageElementBuilder {
@@ -14,7 +14,7 @@ pub struct ImageElementBuilder {
 }
 
 impl ImageElementBuilder {
-    /// Creates a new image bilder with the given image `source`.
+    /// Creates a new image builder with the given image `source`.
     pub fn new<S: Into<String>>(source: S) -> Self {
         ImageElementBuilder {
             source: source.into(),
@@ -24,26 +24,26 @@ impl ImageElementBuilder {
     }
 
     /// Inserts a new position.
-    pub fn with_position(mut self, x: f64, y: f64) -> Self {
+    pub fn position(mut self, x: f64, y: f64) -> Self {
         self.rect.x = x;
         self.rect.y = y;
         self
     }
 
     /// Inserts a new size.
-    pub fn with_size(mut self, width: f64, height: f64) -> Self {
+    pub fn size(mut self, width: f64, height: f64) -> Self {
         self.rect.width = width;
         self.rect.height = height;
         self
     }
 
     /// Inserts a new bounding rect and overwrites position and size.
-    pub fn with_rect(self, x: f64, y: f64, width: f64, height: f64) -> Self {
-        self.with_position(x, y).with_size(width, height)
+    pub fn rect(self, x: f64, y: f64, width: f64, height: f64) -> Self {
+        self.position(x, y).size(width, height)
     }
 
     /// Inserts a new source rect.
-    pub fn with_source_rect(
+    pub fn source_rect(
         mut self,
         source_x: f64,
         source_y: f64,
@@ -61,27 +61,33 @@ impl ImageElementBuilder {
 
     /// Builds the image element.
     pub fn build(self) -> ImageElement {
-        let mut image_element = ImageElement {
-            path: vec![],
-            rect: self.rect,
-            inner_size: None,
-            source: self.source,
-            source_rect: self.source_rect,
-        };
+        let mut image = None;
+        let mut inner_size = None;
+        let source = self.source.clone();
 
-        image_element.build_path();
-        image_element
+        if let Ok(img) = Image::from_source(&self.source) {
+            inner_size = Some((img.width() as f64, img.height() as f64));
+            image = Some(img);
+        }
+
+        ImageElement {
+            rect: self.rect,
+            inner_size,
+            source,
+            source_rect: self.source_rect,
+            image,
+        }
     }
 }
 
-/// The ÌmageElement` is used to display a image on the screen.
+/// The `ImageElement` is used to display a image on the screen.
 #[derive(Clone)]
 pub struct ImageElement {
-    path: Vec<PathSegment>,
     rect: Rect,
     inner_size: Option<(f64, f64)>,
     source: String,
     source_rect: Option<Rect>,
+    image: Option<Image>,
 }
 
 impl ImageElement {
@@ -98,6 +104,7 @@ impl ImageElement {
     /// Sets the file source.
     pub fn set_source<S: Into<String>>(&mut self, source: S) {
         self.source = source.into();
+        self.set_image(self.source.clone());   
     }
 
     /// Gets the source rect.
@@ -109,88 +116,68 @@ impl ImageElement {
     pub fn set_source_rect(&mut self, source_rect: Rect) {
         self.source_rect = Some(source_rect);
     }
+
+    // Sets the inner image.
+    fn set_image<S: Into<String>>(&mut self, source: S) {
+        if let Ok(img) = Image::from_source(&source.into()) {
+            self.inner_size = Some((img.width() as f64, img.height() as f64));
+            self.image = Some(img);
+        } else {
+            self.inner_size = None;
+        }
+    }
 }
 
 impl Shape for ImageElement {
-    fn path(&mut self) -> &mut [PathSegment] {
-        &mut self.path
-    }
-
-    // todo: implement combi version for orbgl and orbgl_web after orbgl_api provides custom image struct
-    #[cfg(target_arch = "wasm32")]
-    fn build_path(&mut self) {
-
-    }
-
-    #[cfg(not(target_arch = "wasm32"))]
-    fn build_path(&mut self) {
-        self.path.clear();
-
-        if let Ok(image) = Image::from_path(self.source()) {
-            if self.width() == 0.0 && self.height() == 0.0 {
-                self.inner_size = Some((image.width() as f64, image.height() as f64));
-            } else {
-                self.inner_size = None;
-            }
-
+    fn render(&mut self, canvas: &mut Canvas) {
+        if let Some(image) = &mut self.image {
             if let Some(source_rect) = self.source_rect {
-                if self.width() == 0.0 && self.height() == 0.0 {
-                    let image_width = image.width();
-                    let image_height = image.height();
+                if self.rect.width == 0.0 && self.rect.height == 0.0 {
+                    let image_width = image.width() as f64;
+                    let image_height = image.height() as f64;
 
-                    self.path.push(PathSegment::DrawImageWithClipAndSize {
+                    canvas.draw_image_with_clip_and_size(
                         image,
-                        clip_x: source_rect.x,
-                        clip_y: source_rect.y,
-                        clip_width: source_rect.width,
-                        clip_height: source_rect.height,
-                        x: self.x(),
-                        y: self.y(),
-                        width: image_width as f64,
-                        height: image_height as f64,
-                    });
+                        source_rect.x,
+                        source_rect.y,
+                        source_rect.width,
+                        source_rect.height,
+                        self.rect.x,
+                        self.rect.y,
+                        image_width,
+                        image_height,
+                    );
                 } else {
-                    self.path.push(PathSegment::DrawImageWithClipAndSize {
+                    canvas.draw_image_with_clip_and_size(
                         image,
-                        clip_x: source_rect.x,
-                        clip_y: source_rect.y,
-                        clip_width: source_rect.width,
-                        clip_height: source_rect.height,
-                        x: self.x(),
-                        y: self.y(),
-                        width: self.width(),
-                        height: self.height(),
-                    });
+                        source_rect.x,
+                        source_rect.y,
+                        source_rect.width,
+                        source_rect.height,
+                        self.rect.x,
+                        self.rect.y,
+                        self.rect.width,
+                        self.rect.height,
+                    );
                 }
             } else {
-                if self.width() == 0.0 && self.height() == 0.0 {
-                    self.path.push(PathSegment::DrawImage {
-                        image,
-                        x: self.x(),
-                        y: self.y(),
-                    });
+                if self.rect.width == 0.0 && self.rect.height == 0.0 {
+                    canvas.draw_image(image, self.rect.x, self.rect.y);
                 } else {
-                    self.path.push(PathSegment::DrawImageWithSize {
+                    canvas.draw_image_with_size(
                         image,
-                        x: self.x(),
-                        y: self.y(),
-                        width: self.width(),
-                        height: self.height(),
-                    });
+                        self.rect.x,
+                        self.rect.y,
+                        self.rect.width,
+                        self.rect.height,
+                    );
                 }
             }
         } else {
             // placeholder border if image could not be loaded
-            self.path.push(PathSegment::SetStrokeStyleColor {
-                color: Color::rgb(0, 0, 0),
-            });
-            self.path.push(PathSegment::Rect {
-                x: self.rect.x,
-                y: self.rect.y,
-                width: self.rect.width,
-                height: self.rect.height,
-            });
-            self.path.push(PathSegment::Stroke());
+            canvas.set_stroke_style(Color::rgb(0, 0, 0));
+            canvas.rect(self.x(), self.y(), self.width(), self.height());
+            canvas.stroke();
         }
     }
 }

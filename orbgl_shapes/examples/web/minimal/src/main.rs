@@ -26,8 +26,8 @@ fn main() {
     let mut canvas = Canvas::new(render_engine.clone());
    
     let mut rectangle = Rectangle::create()
-        .with_rect(10.0, 10.0, 100.0, 75.0)
-        .with_background(Brush::from("#000000"))
+        .rect(10.0, 10.0, 100.0, 75.0)
+        .background("#000000")
         .build();
 
     canvas.render_shape(&mut rectangle);
