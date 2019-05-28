@@ -19,10 +19,10 @@ categories = ["Graphics APIs"]
 edition = "2018"
 
 [target.wasm32-unknown-unknown.dependencies]
-stdweb = "0.4.13"
+stdweb = "0.4.17"
 
 # todo: could be removed after orbgl api is providing its own image, color and font strcut
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-orbclient = "0.3.20"
-orbimage = "0.1.16"
+orbclient = "0.3.22"
+orbimage = "0.1.17"
 orbfont = "0.1.8"
