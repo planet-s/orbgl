@@ -13,6 +13,10 @@ impl FromSource for Image {
 #[cfg(not(target_arch = "wasm32"))]
 pub use orbimage::Image;
 
+
+#[cfg(not(target_arch = "wasm32"))]
+pub use orbclient::Renderer;
+
 #[cfg(not(target_arch = "wasm32"))]
 impl FromSource for Image {
     fn from_source(path: &str) -> Result<Image, String> {
