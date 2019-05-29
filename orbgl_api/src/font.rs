@@ -1,7 +1,7 @@
 use std::path::Path;
 
 #[cfg(target_arch = "wasm32")]
-#[derive(Copy, Clone, Default, Debug)]
+#[derive(Clone, Default, Debug)]
 pub struct Font {
     pub family: String
 }
