@@ -59,6 +59,11 @@ impl Color {
 
 impl ToString for Color {
     fn to_string(&self) -> String {
+        if(self.a() == 0)
+        {
+            return String::from("transparent");
+        }
+        
         let mut color = format!("#{:x}", self.data);
         color.remove(1);
         color.remove(1);
