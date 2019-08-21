@@ -35,6 +35,8 @@ fn main() {
     canvas.set_stroke_style(Color::rgba(0, 0, 0, 255));
 
     //canvas.begin_path();
+    // canvas.rect(0.0, 0.0, 30.0, 30.0);
+    // canvas.clip();
     canvas.move_to(30.0,30.0);
     canvas.line_to(50.0,50.0);
     canvas.fill_rect(20.0, 20.0, 20.0, 20.0);
