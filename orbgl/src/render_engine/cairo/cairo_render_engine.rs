@@ -354,8 +354,6 @@ impl RenderEngine for CairoRenderEngine {
         unsafe {
             cairo_clip(self.cr_layer_a);
             cairo_clip(self.cr_layer_b);
-            cairo_new_path (self.cr_layer_a);
-            cairo_new_path (self.cr_layer_b);
         }
     }
 }
