@@ -81,6 +81,9 @@ pub trait RenderEngine {
     
     /// Draws the given part of the image.
     fn draw_image_with_clip_and_size(&mut self, _image: &mut Image, _clip_x: f64, _clip_y: f64, _clip_width: f64, _clip_height: f64, _x: f64, _y: f64, _width: f64, _height: f64) { println!("RenderEngine: 'draw_image_with_size' is not implemented.") }
+
+    /// Creates a clipping path from the current sub-paths. Everything drawn after clip() is called appears inside the clipping path only.
+    fn clip(&mut self);
 }
 
 

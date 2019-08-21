@@ -349,4 +349,10 @@ impl RenderEngine for CairoRenderEngine {
         }
 
     }
+
+    fn clip(&mut self) {
+        unsafe {
+            cairo_clip(self.cr_layer_a);
+        }
+    }
 }

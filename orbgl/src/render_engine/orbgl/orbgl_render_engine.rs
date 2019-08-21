@@ -400,4 +400,8 @@ impl RenderEngine for OrbGLRenderEngine {
     fn set_line_width(&mut self, line_width: f64) {
         self.state.line_width = line_width;
     }
+
+    fn clip(&mut self) {
+        // todo: clip
+    }
 }

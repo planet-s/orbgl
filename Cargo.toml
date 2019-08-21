@@ -3,6 +3,5 @@
 members = [
     "orbgl",
     "orbgl_api",
-    "orbgl_shapes",
     "orbgl_web"
 ]

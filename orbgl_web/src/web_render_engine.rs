@@ -141,6 +141,7 @@ impl RenderEngine for WebRenderEngine {
     fn draw_image_with_size(&mut self, image: &mut Image, x: f64, y: f64, width: f64, height: f64) {
         let image = image.clone();
         js! {
+            console.log("image");
             var img = @{&image};
             var context = @{&self.surface.context};
             img.onload = function() {
@@ -171,5 +172,9 @@ impl RenderEngine for WebRenderEngine {
                 context.drawImage(@{&image}, @{&clip_x}, @{&clip_y}, @{&clip_width}, @{&clip_height}, @{&x}, @{&y}, @{&width}, @{&height});
             };
         }
+    }
+
+    fn clip(&mut self) {
+        self.surface.context.clip(FillRule::default());
     }
 }

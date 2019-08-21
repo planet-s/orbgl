@@ -148,4 +148,9 @@ impl Canvas {
     pub fn draw_image_with_clip_and_size(&mut self, image: &mut Image, clip_x: f64, clip_y: f64, clip_width: f64, clip_height: f64, x: f64, y: f64, width: f64, height: f64) {
         self.render_engine.borrow_mut().draw_image_with_clip_and_size(image,clip_x, clip_y,clip_width,clip_height,x, y, width, height);
     }
+
+    /// Creates a clipping path from the current sub-paths. Everything drawn after clip() is called appears inside the clipping path only.
+    pub fn clip(&mut self) {
+        self.render_engine.borrow_mut().clip();
+    }
 }
