@@ -353,7 +353,7 @@ impl RenderEngine for CairoRenderEngine {
     fn clip(&mut self) {
         unsafe {
             cairo_clip(self.cr_layer_a);
-            cairo_clip(self.cr_layer_b);
+            cairo_new_sub_path(self.cr_layer_a);
         }
     }
 }
